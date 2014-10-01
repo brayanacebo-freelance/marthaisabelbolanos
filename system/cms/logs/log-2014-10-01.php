@@ -315,3 +315,15 @@ ERROR - 2014-10-01 03:40:18 --> Page Missing: system/cms/themes/kubocms/bucket-i
 ERROR - 2014-10-01 03:40:18 --> Plugin method "img" does not exist on class "Plugin_Theme".
 ERROR - 2014-10-01 03:40:18 --> Page Missing: system/cms/themes/kubocms/bucket-ico-fonts/bucket-ico-font.svg
 ERROR - 2014-10-01 03:40:18 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:47 --> Page Missing: images/avatar1_small.jpg
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:48 --> Page Missing: images/chat-avatar2.jpg
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:48 --> Page Missing: images/avatar1.jpg
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:48 --> Page Missing: system/cms/themes/kubocms/bucket-ico-fonts/bucket-ico-font.woff
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:48 --> Page Missing: system/cms/themes/kubocms/bucket-ico-fonts/bucket-ico-font.ttf
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
+ERROR - 2014-10-01 03:42:48 --> Page Missing: system/cms/themes/kubocms/bucket-ico-fonts/bucket-ico-font.svg
+ERROR - 2014-10-01 03:42:48 --> Plugin method "img" does not exist on class "Plugin_Theme".
