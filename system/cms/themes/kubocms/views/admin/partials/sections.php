@@ -1,6 +1,5 @@
 <div class="sections_bar">
 	<div class="wrapper">
-	
 		<ul>
 			<?php foreach ($module_details['sections'] as $name => $section): ?>
 			<?php if(isset($section['name']) && isset($section['uri'])): ?>
