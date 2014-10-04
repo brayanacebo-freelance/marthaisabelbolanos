@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row row-for-menu2">
 	<div class="col-sm-12">
 		<section class="panel">
 			<header class="panel-heading">
@@ -10,7 +10,6 @@
 					<table class="table table-striped table-hover table-bordered" id="editable-sample">
 						<thead>
 							<tr>
-								<th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')) ?></th>
 								<th><?php echo lang('blog:post_label') ?></th>
 								<th><?php echo lang('blog:category_label') ?></th>
 								<th><?php echo lang('blog:date_label') ?></th>
@@ -22,7 +21,6 @@
 						<tbody>
 							<?php foreach ($blog as $post) : ?>
 							<tr class="">
-								<td><?php echo form_checkbox('action_to[]', $post->id) ?></td>
 								<td><?php echo $post->title ?></td>
 								<td><?php echo $post->category_title ?></td>
 								<td><?php echo format_date($post->created_on) ?></td>
@@ -48,7 +46,7 @@
 	</tbody>
 </table>
 </div>
-<?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete', 'publish'))) ?>	
+
 </div>
 </section>
 </div>
