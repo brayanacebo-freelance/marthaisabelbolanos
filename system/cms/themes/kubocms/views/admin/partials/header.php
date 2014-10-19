@@ -103,7 +103,6 @@
 <aside>
 	<?php file_partial('navigation') ?>
 </aside>
-<?php if ( ! empty($module_details['sections'])) file_partial('sections') ?>
 <!-- <noscript>
 	<span>PyroCMS requires that JavaScript be turned on for many of the functions to work correctly. Please turn JavaScript on and reload the page.</span>
 </noscript> -->
@@ -151,4 +150,4 @@
 	</div>
 </div> -->
 
-
+<?php if ( ! empty($module_details['sections'])) file_partial('sections') ?>

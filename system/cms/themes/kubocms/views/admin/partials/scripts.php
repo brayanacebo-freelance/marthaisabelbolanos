@@ -18,16 +18,15 @@
 	echo kubo_js('assets/flot-chart/jquery.flot.resize.js');
 	echo kubo_js('assets/flot-chart/jquery.flot.pie.resize.js');
 	//dynamic table
-	echo kubo_js('assets/data-tables/jquery.dataTables.js');
+	echo kubo_js('assets/advanced-datatable/media/js/jquery.dataTables.js');
 	echo kubo_js('assets/data-tables/DT_bootstrap.js');
-	// echo kubo_js('assets/nestable/jquery.nestable.js');
+	echo kubo_js('assets/nestable/jquery.nestable.js');
 	echo kubo_js('assets/ckeditor/ckeditor.js');
 	echo kubo_js('assets/iCheck-master/jquery.icheck.js');
 	//common script init for all pages
 	echo kubo_js('scripts.kubocms.js');
 	//uploads
 	echo kubo_js('assets/bootstrap-fileupload/bootstrap-fileupload.js');
-	//tablas
-	echo kubo_js('editable-table/table-editable.js');
-	
+	//Datepicker
+	echo kubo_js('bootstrap-datepicker/bootstrap-datepicker.js');
 ?>
