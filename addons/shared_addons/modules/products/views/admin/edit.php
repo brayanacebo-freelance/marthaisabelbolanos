@@ -65,6 +65,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">Video de YouTuBe</label>
                             <div class="col-md-8 col-xs-11">
+                                <iframe width="420" height="315" src="<?php echo $product->video ?>" frameborder="0" allowfullscreen></iframe>
                                 <?php echo  form_input('video', $product->video, 'class="form-control"') ?>
                             </div>
                         </div>
