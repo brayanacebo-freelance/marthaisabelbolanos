@@ -1,114 +1,55 @@
-<div id="baseurl" class="hide"><?php echo site_url(); ?></div>
-<section class="title">
-    <h4>Productos</h4>
-</section>
-<section class="item">
-    <div class="content">
-        <div class="tabs">
-            <ul class="tab-menu">
-                <li><a href="#page-products"><span>Listado de Productos</span></a></li>
-                <li><a href="#page-structure-categories"><span>Estructura Categorias</span></a></li>
-                <li><a href="#page-intro"><span>Introducción</span></a></li>
-            </ul>
 
-            <!-- PRODUCTOS -->
-            <div class="form_inputs" id="page-products">
-                <fieldset>
-
-                    <?php echo anchor('admin/products/create', '<span>+ Nuevo Producto</span>', 'class="btn blue"'); ?>
-                    <br>
-                    <br>
-
-                    <?php if (!empty($products)): ?>
-
-                        <table border="0" class="table-list" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th style="width: 15%">Nombre</th>
-                                    <th style="width: 20%">Imagen</th>
-                                    <th style="width: 25%">Descripción</th>
-                                    <th style="width: 10%">Destacado</th>
-                                    <th style="width: 30%">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="6">
-                                        <div class="inner filtered"><?php $this->load->view('admin/partials/pagination') ?></div>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <?php foreach ($products as $product): ?>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">Productos</header>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <a href="admin/products/create" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Nuevo</a>
+                        <div class="adv-table">
+                            <table  class="display table table-bordered table-striped" id="dynamic-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Imagen</th>
+                                        <th>Descripción</th>
+                                        <th>Destacado</th>
+                                        <th width="180"><?php echo lang('global:actions') ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($products as $product) : ?>
                                     <tr>
                                         <td><?php echo $product->name ?></td>
                                         <td>
                                             <?php if (!empty($product->image)): ?>
-                                                <img src="<?php echo site_url($product->image); ?>" style="height: 130px;">
+                                            <img src="<?php echo site_url($product->image); ?>" style="height: 130px;">
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?php echo substr(strip_tags($product->description), 0,100) ?></td>
+                                    <td style="text-align: center;">
+                                        <a class="outstanding_product" href="admin/products/outstanding_product/<?php echo $product->id; ?>">
+                                            <?php if($product->outstanding): ?>
+                                            <i class="fa fa-star" style="font-size: 20px;color: rgb(255, 223, 0);"></i>
                                             <?php endif; ?>
-                                        </td>
-                                        <td><?php echo substr(strip_tags($product->description), 0,100) ?></td>
-                                        <td><a class="outstanding_product" href="admin/products/outstanding_product/<?php echo $product->id; ?>"><img src="<?php echo site_url().'uploads/default/'.($product->outstanding == 1 ? 'estrella' : 'estrella_gris').'.png'; ?>" border="0"></a> </td>
-                                        <td>
-                                            <?php echo anchor('admin/products/edit/' . $product->id, lang('global:edit'), 'class="btn green small"'); ?>
-                                            <?php echo anchor('admin/products/images/' . $product->id, "Imagenes", 'class="btn orange small"'); ?>
-                                            <?php echo anchor('admin/products/destroy/' . $product->id, lang('global:delete'), array('class' => 'btn red small confirm button')) ?>
-                                        </td>
-                                    </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-
-                    <?php else: ?>
-                        <p style="text-align: center">No hay Registros actualmente</p>
-                    <?php endif ?>
-                </fieldset>
+                                            <?php if(!$product->outstanding): ?>
+                                            <i class="fa fa-star-o" style="font-size: 20px;"></i>
+                                            <?php endif; ?>
+                                        </a> 
+                                    </td>
+                                    <td>
+                                        <a href="<?php echo site_url('admin/products/images/' . $product->id) ?>" title="Imagenes" class="btn btn-success btn-sm"><i class="fa fa-picture-o"></i></a>
+                                        <a href="<?php echo site_url('admin/products/edit/' . $product->id) ?>" title="Editar" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                                        <a href="<?php echo site_url('admin/products/destroy/' . $product->id) ?>" title="Eliminar" class="btn btn-danger btn-sm" data-toggle="modal" href="#ModalEliminar"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        
-        <!-- ESTRUCTURA CATEGORIAS -->
-        <div class="form_inputs" id="page-structure-categories">
-            <fieldset>
-            	<?php echo anchor('admin/products/create_category', '<span>+ Nueva Categoria</span>', 'class="btn blue"'); ?>
-                <br>
-                <br>
-                <div id="ajax_message"></div>
-            	<section class="item">
-            		<div class="content">
-                        <div id="category-sort">
-                        	<?php echo $structure_categories; ?>
-                		</div>
-                    </div>
-        		</section>
-        		
-            </fieldset>
         </div>
-
-        <!-- INTRO -->
-        <div class="form_inputs" id="page-intro">
-            <?php echo form_open_multipart(site_url('admin/products/update_intro'), 'id="form-wysiwyg"'); ?>
-            <fieldset>
-                <ul>
-                    <li>
-                        <label for="name">Introducción <span>*</span><small>Evite pegar texto directamente desde un sitio web u otro editor de texto.</small></label>
-                        <div class="input">
-                            <div class="sroll-table">
-                                <?php echo form_textarea(array('id' => 'text-wysiwyg', 'name' => 'text_wysiwyg', 'value' => $intro->text, 'rows' => 30, 'class' => 'wysiwyg-advanced')) ?>
-                                <input type="hidden" name="content" id="text">
-                            </div>
-                        </div>
-                        <br class="clear">
-                    </li>
-                </ul>
-            </fieldset>
-
-            <div class="buttons float-right padding-top">
-                <?php echo form_hidden('id',$intro->id); ?>
-                <?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'cancel'))); ?>
-            </div>
-
-            <?php echo form_close(); ?>
-        </div>
-
-    </div>
+    </section>
 </div>
-</section>
+</div>

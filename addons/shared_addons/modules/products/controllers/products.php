@@ -29,7 +29,7 @@ class Products extends Public_Controller {
 
 // -----------------------------------------------------------------
 
-    public function index($selCategory = null)
+    /*public function index($selCategory = null)
     {
         $category = null;
 		$search = '';
@@ -95,6 +95,103 @@ class Products extends Public_Controller {
 		->set('search', $search)
 		->set('selCategory', $selCategory)
         ->build('index');
+    }*/
+    
+    public function index($selCategory = null)
+    {
+        $category = null;
+		$search = '';
+		
+		// consulta de los productos a sus respectivas tablas
+		$this->db->select('pr.*, pc.title')
+					->from('products AS pr')
+					->join('products_categories AS pm', 'pm.product_id = pr.id', 'left')
+					->join('product_categories AS pc', 'pc.id = pm.category_id', 'left')
+					->group_by('pr.id')
+					->order_by('pc.position', 'ASC');
+		
+		// si se selecciona una categoria
+		if($selCategory)
+		{
+			$this->db->where('pc.slug',$selCategory);
+		}
+		
+		// si se esta buscando
+		if(isset($_POST['shearch']))
+		{
+			// Se consultan los productos
+			$search = $_POST['shearch'];
+			$search = explode(' ', $search);
+			if(!empty($search) && count($search) > 1)
+			{
+				$first = FALSE;
+				foreach($search AS $item)
+				{
+					if($first)
+					{
+						$this->db->like('pr.name', $item);
+						$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pr.name),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $item);
+						$this->db->or_like('pc.title', $item);
+						$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pc.title),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $item);
+						$first = TRUE;
+					}
+					else
+					{
+						$this->db->or_like('pr.name', $item);
+						$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pr.name),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $item);
+						$this->db->or_like('pc.title', $item);
+						$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pc.title),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $item);
+					}
+				}
+			}
+			else
+			{
+				$this->db->like('pr.name', $_POST['shearch']);
+				$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pr.name),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $_POST['shearch']);
+				$this->db->or_like('pc.title', $_POST['shearch']);
+				$this->db->or_like("REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(pc.title),'á','a'),'é','e'),'í','i'),'ó','o'),'ú','u')", $_POST['shearch']);
+			}
+		}
+		
+		// traemos los datos
+		$products = $this->db->get()->result();
+		/*echo $this->db->last_query();*/
+		
+		if(!empty($products))
+		{
+	        foreach($products AS $item)
+	        {
+	            $item->name = substr($item->name, 0, 40);
+	            $item->image = val_image($item->image);
+	            $item->introduction = substr($item->introduction, 0, 100);
+	            $item->price = ($item->price) ? "Precio: $".number_format($item->price) : null;
+	            $item->url = site_url('products/detail/'.$item->slug);
+	        }
+		}
+
+    	// Consultamos las categorias
+        $categories = $this->db
+        ->order_by('position', 'ASC')
+        ->get('product_categories')
+        ->result();
+
+    	// Intro
+        $intro = $this->db->get('products_intro')->result();
+        $intro = $intro[0];
+
+    // Devuelve arbol en HTML, el segundo parametro es el nombre del modulo
+        //$menu = treemenu($categories,'products');
+
+        $this->template
+        ->set('products', $products)
+        ->set('category', ($category) ? "/ ".$category->title : null)
+        ->set('categories', $categories)
+		->set('current', ($category) ? $category->title : null)
+        //->set('menu', $menu)
+        ->set('intro', $intro)
+		->set('search', $search)
+		->set('selCategory', $selCategory)
+        ->build('index');
     }
 
 
@@ -131,12 +228,28 @@ class Products extends Public_Controller {
         }
 
         // imagenes para slider
-        $images = $this->db->where('product_id', $product['id'])->get('product_images')->result();
+        /*$images = $this->db->where('product_id', $product['id'])->get('product_images')->result();*/
+        $images = $this->db->where('path IS NOT NULL', null, false)->where('product_id', $product['id'])->get('product_images')->result();
+		$videos = $this->db->where('video IS NOT NULL', null, false)->where('product_id', $product['id'])->get('product_images')->result();
+		
+		if(!empty($videos))
+		{
+			foreach($videos AS $item)
+			{
+				$img_video = explode("v=",$item->video);
+				
+				if(isset($img_video[1]))
+				{
+					$item->img_video = $img_video[1];
+				}
+			}
+		}
 
         $this->template
                 ->set('product', (object) $product)
                 ->set('categories', $categories)
                 ->set('images', $images)
+				->set('videos', $videos)
                 ->build('detail');
 
     }

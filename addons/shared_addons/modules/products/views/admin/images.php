@@ -1,49 +1,37 @@
-<section class="title">
-    <h4>Productos / <?php echo ucfirst($product->name) ?> / Imagenes</h4>
-    <a href="<?php echo backend_url('products') ?>" class="btn small">Volver a los Productos</a>
-</section>
-<section class="item">
-    <div class="content">
-        <div class="tabs">
-            <ul class="tab-menu">
-                <li><a href="#page-products"><span>Imagenes</span></a></li>
-            </ul>
 
-            <!-- IMAGENES -->
-            <div class="form_inputs" id="page-products">
-                <fieldset>
-
-                    <?php echo anchor('admin/products/create_image/'.$product->id, '<span>+ Nueva Imagen</span>', 'class="btn blue"'); ?>
-                    <br>
-                    <br>
-
-                    <?php if (!empty($images)): ?>
-
-                        <table border="0" class="table-list" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th style="width: 70%">Imagen</th>
-                                    <th style="width: 30%">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($images as $image): ?>
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">Nueva Imagen para "<?php echo $product->name ?>"</header>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div id="home-2" class="tab-pane active">
+                        <a href="admin/products/create_image/<?php echo $product->id ?>" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Nueva imagen</a>
+                        <a href="admin/products" type="button" class="btn btn-default"><i class="fa fa-arrow-left"></i> Volver a products</a>
+                        <div class="adv-table">
+                            <table  class="display table table-bordered table-striped" id="dynamic-table">
+                                <thead>
                                     <tr>
-                                        <td><img src="<?php echo val_image($image->path) ?>" alt="imagen" height="100"></td>
+                                        <th>Imagen</th>
+                                        <th width="180"><?php echo lang('global:actions') ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($images as $image) : ?>
+                                    <tr class="">
+                                        <td align="center">
+                                            <img src="<?php echo val_image($image->path) ?>" alt="imagen" height="100">
+                                        </td>
                                         <td>
-                                            <?php echo anchor('admin/products/destroy_image/' . $image->id.'/'.$product->id, lang('global:delete'), array('class' => 'btn red small confirm button')) ?>
+                                            <a href="<?php echo site_url('admin/products/destroy_image/' . $image->id.'/'.$product->id) ?>" title="Eliminar" class="btn btn-danger btn-sm" data-toggle="modal" href="#ModalEliminar"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-
-                    <?php else: ?>
-                        <p style="text-align: center">No hay Registros actualmente</p>
-                    <?php endif ?>
-                </fieldset>
-            </div>
-
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
-</section>
