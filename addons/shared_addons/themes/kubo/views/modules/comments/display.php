@@ -1,41 +1,19 @@
-	<?php if ($comments): ?>
-	
+<?php if ($comments): ?>
+<section class="comentarios">
 	<?php foreach ($comments as $item): ?>
-		
-		<div class="comment">
-			
-			<div class="details">
-				<div class="col-md-2">
-					<div class="image">
-						<?php echo gravatar($item->user_email, 60) ?>
-					</div>
-					<div class="name mtop10">
-						<?php echo $item->user_name ?>
-					</div>
-					<div class="date">
-						<p><?php echo format_date($item->created_on) ?></p>
-					</div>
+		<article class="comentario">
+			<a class="comentario-img" href="#non">
+				<?php echo gravatar($item->user_email, 50) ?>
+			</a>
+			<div class="comentario-body">
+				<div class="text">
+					<p><?php echo nl2br($item->comment) ?></p>
 				</div>
-				<div class="col-md-10">
-					
-				
-					<?php if (Settings::get('comment_markdown') and $item->parsed): ?>
-						<?php echo $item->parsed ?>
-					<?php else: ?>
-						<div class="blog_comment"><?php echo nl2br($item->comment) ?></div>
-					<?php endif ?>
-				</div>
-				<div class="clear"></div>
-				<div class="col-md-12">
-					<hr>
-				</div>
-				
+				<p class="attribution">por <a href="#non"><?php echo $item->user_name ?></a> <?php echo format_date($item->created_on) ?></p>
 			</div>
-		</div><!-- close .comment -->
-		
-		
+		</article>
 	<?php endforeach ?>
-	
+</section>​
 <?php else: ?>
 	<p><?php echo lang('comments:no_comments') ?></p>
 <?php endif ?>

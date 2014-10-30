@@ -179,3 +179,22 @@ if (!function_exists('kubo_css')) {
 	}
 }
 
+//Frontend
+
+if (!function_exists('front_url')) {
+	function front_url($uri = '') {
+		$CI = & get_instance();
+		$src = $CI->config->site_url('addons/shared_addons/themes/kubo/' . $uri);
+		return $src;
+	}
+}
+
+if (!function_exists('get_pictures')) {
+	function get_pictures($id) {
+		$CI = & get_instance();
+		$CI->load->model('albums/album_image_model');
+		$pictures = $CI->album_image_model->where('album_id', $id)->get_all();
+		return $pictures;
+	}
+}
+

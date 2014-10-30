@@ -32,7 +32,7 @@
 
 		<?php echo form_close() ?>
 
-<?php $this->load->view('admin/partials/pagination') ?>
+	<?php $this->load->view('admin/partials/pagination') ?>
 
 	<?php else: ?>
 		<div class="no_data">No blogs</div>
