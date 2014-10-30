@@ -198,3 +198,12 @@ if (!function_exists('get_pictures')) {
 	}
 }
 
+if (!function_exists('get_images')) {
+	function get_images($id) {
+		$CI = & get_instance();
+		$CI->load->model('perfil/perfil_chapter_image_model');
+		$pictures = $CI->perfil_chapter_image_model->where('chapters_id', $id)->get_all();
+		return $pictures;
+	}
+}
+
