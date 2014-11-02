@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller']                = 'home';
+$route['default_controller']                = 'pages';
 $route['404_override']                      = 'pages';
 
 $route['admin/help/([a-zA-Z0-9_-]+)']       = 'admin/help/$1';
@@ -54,6 +54,8 @@ $route['register']                          = 'users/register';
 $route['user/(:any)']	                    = 'users/view/$1';
 $route['my-profile']	                    = 'users/index';
 $route['edit-profile']	                    = 'users/edit';
+
+$route['fotografias']	                    = 'albums';
 
 $route['sitemap.xml']                       = 'sitemap/xml';
 

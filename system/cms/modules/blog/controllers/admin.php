@@ -15,62 +15,62 @@ class Admin extends Admin_Controller
 			'field' => 'title',
 			'label' => 'lang:global:title',
 			'rules' => 'trim|htmlspecialchars|required|max_length[200]|callback__check_title'
-		),
+			),
 		'slug' => array(
 			'field' => 'slug',
 			'label' => 'lang:global:slug',
 			'rules' => 'trim|required|alpha_dot_dash|max_length[200]|callback__check_slug'
-		),
+			),
 		array(
 			'field' => 'category_id',
 			'label' => 'lang:blog:category_label',
 			'rules' => 'trim|numeric'
-		),
+			),
 		array(
 			'field' => 'keywords',
 			'label' => 'lang:global:keywords',
 			'rules' => 'trim'
-		),
+			),
 		array(
 			'field' => 'body',
 			'label' => 'lang:blog:content_label',
 			'rules' => 'trim|required'
-		),
+			),
 		array(
 			'field' => 'type',
 			'rules' => 'trim|required'
-		),
+			),
 		array(
 			'field' => 'status',
 			'label' => 'lang:blog:status_label',
 			'rules' => 'trim|alpha'
-		),
+			),
 		array(
 			'field' => 'created_on',
 			'label' => 'lang:blog:date_label',
 			'rules' => 'trim|required'
-		),
+			),
 		array(
 			'field' => 'created_on_hour',
 			'label' => 'lang:blog:created_hour',
 			'rules' => 'trim|numeric|required'
-		),
+			),
 		array(
 			'field' => 'created_on_minute',
 			'label' => 'lang:blog:created_minute',
 			'rules' => 'trim|numeric|required'
-		),
+			),
 		array(
 			'field' => 'comments_enabled',
 			'label' => 'lang:blog:comments_enabled_label',
 			'rules' => 'trim|required'
-		),
+			),
 		array(
 			'field' => 'preview_hash',
 			'label' => '',
 			'rules' => 'trim'
-		)
-	);
+			)
+		);
 
 	/**
 	 * Every time this controller controller is called should:
@@ -98,11 +98,11 @@ class Admin extends Admin_Controller
 
 		// Date ranges for select boxes
 		$this->template
-			->set('hours', array_combine($hours = range(0, 23), $hours))
-			->set('minutes', array_combine($minutes = range(0, 59), $minutes))
-			->set('categories', $_categories)
+		->set('hours', array_combine($hours = range(0, 23), $hours))
+		->set('minutes', array_combine($minutes = range(0, 59), $minutes))
+		->set('categories', $_categories)
 
-			->append_css('module::blog.css');
+		->append_css('module::blog.css');
 	}
 
 	/**
@@ -135,22 +135,22 @@ class Admin extends Admin_Controller
 
 		// Using this data, get the relevant results
 		$blog = $this->blog_m
-			->limit($pagination['limit'], $pagination['offset'])
-			->get_many_by($base_where);
+		->limit($pagination['limit'], $pagination['offset'])
+		->get_many_by($base_where);
 
 		//do we need to unset the layout because the request is ajax?
 		$this->input->is_ajax_request() and $this->template->set_layout(false);
 
 		$this->template
-			->title($this->module_details['name'])
-			->append_js('admin/filter.js')
-			->set_partial('filters', 'admin/partials/filters')
-			->set('pagination', $pagination)
-			->set('blog', $blog);
+		->title($this->module_details['name'])
+		->append_js('admin/filter.js')
+		->set_partial('filters', 'admin/partials/filters')
+		->set('pagination', $pagination)
+		->set('blog', $blog);
 
 		$this->input->is_ajax_request()
-			? $this->template->build('admin/tables/posts')
-			: $this->template->build('admin/index');
+		? $this->template->build('admin/tables/posts')
+		: $this->template->build('admin/index');
 
 	}
 
@@ -199,23 +199,45 @@ class Admin extends Admin_Controller
 
 		if ($this->form_validation->run())
 		{
+
+			$config['upload_path'] = './' . UPLOAD_PATH . '/blog';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size'] = 2050;
+			$config['encrypt_name'] = true;
+
+			$this->load->library('upload', $config);
+
+            // imagen
+			$img = $_FILES['image']['name'];
+
+			if (!empty($img)) {
+				if ($this->upload->do_upload('image')) {
+					$datos = array('upload_data' => $this->upload->data());
+					$path = UPLOAD_PATH . 'blog/' . $datos['upload_data']['file_name'];
+
 			// Insert a new blog entry.
 			// These are the values that we don't pass through streams processing.
-			$extra = array(
-				'title'            => $this->input->post('title'),
-				'slug'             => slug($this->input->post('title')),
-				'category_id'      => $this->input->post('category_id'),
-				'keywords'         => Keywords::process($this->input->post('keywords')),
-				'body'             => $this->input->post('body'),
-				'status'           => $this->input->post('status'),
-				'created_on'       => $created_on,
-				'created'		   => date('Y-m-d H:i:s', $created_on),
-				'comments_enabled' => $this->input->post('comments_enabled'),
-				'author_id'        => $this->current_user->id,
-				'type'             => $this->input->post('type'),
-				'parsed'           => ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
-				'preview_hash'     => $hash
-			);
+					$extra = array(
+						'title'            => $this->input->post('title'),
+						'slug'             => slug($this->input->post('title')),
+						'category_id'      => $this->input->post('category_id'),
+						'keywords'         => Keywords::process($this->input->post('keywords')),
+						'body'             => $this->input->post('body'),
+						'status'           => $this->input->post('status'),
+						'created_on'       => $created_on,
+						'created'		   => date('Y-m-d H:i:s', $created_on),
+						'comments_enabled' => $this->input->post('comments_enabled'),
+						'author_id'        => $this->current_user->id,
+						'type'             => $this->input->post('type'),
+						'parsed'           => ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
+						'preview_hash'     => $hash,
+						'image' 		   => $path
+						);
+				} else {
+					$this->session->set_flashdata('error', $this->upload->display_errors());
+					redirect('admin/blog/create');
+				}
+			}
 
 			if ($id = $this->streams->entries->insert_entry($_POST, 'blog', 'blogs', array('created'), $extra))
 			{
@@ -261,15 +283,15 @@ class Admin extends Admin_Controller
 		$this->fields->run_field_events($stream_fields, array(), $values);
 
 		$this->template
-			->title($this->module_details['name'], lang('blog:create_title'))
+		->title($this->module_details['name'], lang('blog:create_title'))
 			//->append_metadata($this->load->view('fragments/wysiwyg', array(), true))
-			->append_js('jquery/jquery.tagsinput.js')
-			->append_js('module::blog_form.js')
-			->append_js('module::blog_category_form.js')
-			->append_css('jquery/jquery.tagsinput.css')
-			->set('stream_fields', $this->streams->fields->get_stream_fields($stream->stream_slug, $stream->stream_namespace, $values))
-			->set('post', $post)
-			->build('admin/form');
+		->append_js('jquery/jquery.tagsinput.js')
+		->append_js('module::blog_form.js')
+		->append_js('module::blog_category_form.js')
+		->append_css('jquery/jquery.tagsinput.css')
+		->set('stream_fields', $this->streams->fields->get_stream_fields($stream->stream_slug, $stream->stream_namespace, $values))
+		->set('post', $post)
+		->build('admin/form');
 	}
 
 	/**
@@ -317,8 +339,8 @@ class Admin extends Admin_Controller
 				'field' => 'title',
 				'label' => 'lang:global:title',
 				'rules' => 'trim|htmlspecialchars|required|max_length[100]|callback__check_title['.$id.']'
-			)
-		));
+				)
+			));
 
 		// Merge and set our validation rules
 		$this->form_validation->set_rules(array_merge($this->validation_rules, $blog_validation));
@@ -339,23 +361,65 @@ class Admin extends Admin_Controller
 		{
 			$author_id = empty($post->display_name) ? $this->current_user->id : $post->author_id;
 
-			$extra = array(
-				'title'            => $this->input->post('title'),
-				'slug'             => slug($this->input->post('title')),
-				'category_id'      => $this->input->post('category_id'),
-				'keywords'         => Keywords::process($this->input->post('keywords'), $old_keywords_hash),
-				'body'             => $this->input->post('body'),
-				'status'           => $this->input->post('status'),
-				'created_on'       => $created_on,
-				'updated_on'       => $created_on,
-				'created'		   => date('Y-m-d H:i:s', $created_on),
-				'updated'		   => date('Y-m-d H:i:s', $created_on),
-				'comments_enabled' => $this->input->post('comments_enabled'),
-				'author_id'        => $author_id,
-				'type'             => $this->input->post('type'),
-				'parsed'           => ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
-				'preview_hash'     => $hash,
-			);
+			$config['upload_path'] = './' . UPLOAD_PATH . '/blog';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size'] = 2050;
+			$config['encrypt_name'] = true;
+
+			$this->load->library('upload', $config);
+
+            // imagen
+			$img = $_FILES['image']['name'];
+
+			if (!empty($img)) {
+				if ($this->upload->do_upload('image')) {
+					$datos = array('upload_data' => $this->upload->data());
+					$path = UPLOAD_PATH . 'blog/' . $datos['upload_data']['file_name'];
+
+					$extra = array(
+						'title'            => $this->input->post('title'),
+						'slug'             => slug($this->input->post('title')),
+						'category_id'      => $this->input->post('category_id'),
+						'keywords'         => Keywords::process($this->input->post('keywords'), $old_keywords_hash),
+						'body'             => $this->input->post('body'),
+						'status'           => $this->input->post('status'),
+						'created_on'       => $created_on,
+						'updated_on'       => $created_on,
+						'created'		   => date('Y-m-d H:i:s', $created_on),
+						'updated'		   => date('Y-m-d H:i:s', $created_on),
+						'comments_enabled' => $this->input->post('comments_enabled'),
+						'author_id'        => $author_id,
+						'type'             => $this->input->post('type'),
+						'parsed'           => ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
+						'preview_hash'     => $hash,
+						'image' 		   => $path
+						);
+
+					$obj = $this->db->where('id', $id)->get('blog')->row();
+					@unlink($obj->image);
+				} else {
+					$this->session->set_flashdata('error', $this->upload->display_errors());
+					redirect('admin/blog/edit/'.$id);
+				}
+			}else{
+				$extra = array(
+					'title'            => $this->input->post('title'),
+					'slug'             => slug($this->input->post('title')),
+					'category_id'      => $this->input->post('category_id'),
+					'keywords'         => Keywords::process($this->input->post('keywords'), $old_keywords_hash),
+					'body'             => $this->input->post('body'),
+					'status'           => $this->input->post('status'),
+					'created_on'       => $created_on,
+					'updated_on'       => $created_on,
+					'created'		   => date('Y-m-d H:i:s', $created_on),
+					'updated'		   => date('Y-m-d H:i:s', $created_on),
+					'comments_enabled' => $this->input->post('comments_enabled'),
+					'author_id'        => $author_id,
+					'type'             => $this->input->post('type'),
+					'parsed'           => ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
+					'preview_hash'     => $hash
+					);
+			}
 
 			if ($this->streams->entries->update_entry($id, $_POST, 'blog', 'blogs', array('updated'), $extra))
 			{
@@ -398,14 +462,14 @@ class Admin extends Admin_Controller
 		$this->fields->run_field_events($stream_fields, array(), $values);
 
 		$this->template
-			->title($this->module_details['name'], sprintf(lang('blog:edit_title'), $post->title))
+		->title($this->module_details['name'], sprintf(lang('blog:edit_title'), $post->title))
 			//->append_metadata($this->load->view('fragments/wysiwyg', array(), true))
-			->append_js('jquery/jquery.tagsinput.js')
-			->append_js('module::blog_form.js')
-			->set('stream_fields', $this->streams->fields->get_stream_fields($stream->stream_slug, $stream->stream_namespace, $values, $post->id))
-			->append_css('jquery/jquery.tagsinput.css')
-			->set('post', $post)
-			->build('admin/form');
+		->append_js('jquery/jquery.tagsinput.js')
+		->append_js('module::blog_form.js')
+		->set('stream_fields', $this->streams->fields->get_stream_fields($stream->stream_slug, $stream->stream_namespace, $values, $post->id))
+		->append_css('jquery/jquery.tagsinput.css')
+		->set('post', $post)
+		->build('admin/form');
 	}
 
 	/**
@@ -418,9 +482,9 @@ class Admin extends Admin_Controller
 		$post = $this->blog_m->get($id);
 
 		$this->template
-			->set_layout('modal', 'admin')
-			->set('post', $post)
-			->build('admin/preview');
+		->set_layout('modal', 'admin')
+		->set('post', $post)
+		->build('admin/preview');
 	}
 
 	/**
@@ -431,16 +495,16 @@ class Admin extends Admin_Controller
 		switch ($this->input->post('btnAction'))
 		{
 			case 'publish':
-				$this->publish();
-				break;
+			$this->publish();
+			break;
 
 			case 'delete':
-				$this->delete();
-				break;
+			$this->delete();
+			break;
 
 			default:
-				redirect('admin/blog');
-				break;
+			redirect('admin/blog');
+			break;
 		}
 	}
 

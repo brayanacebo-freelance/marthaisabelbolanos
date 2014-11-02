@@ -1,66 +1,67 @@
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<h1>Blog <b>{{ category }}</b></h1>
-	    </div>
-	</div>
-	
-{{ if posts }}
-	{{ posts }}
-	<div class="row">
 
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        	<h3 class="tittle_blog">{{ title }}</h3>
-            <div class="author">
-                <div>{{ helper:lang line="blog:written_by_label" }}
-                <a href="{{ url:site }}user/{{ created_by:user_id }}">{{ created_by:display_name }}</a></div>
-                <span class="date">{{ helper:lang line="blog:posted_label" }} {{ helper:date timestamp=created_on }}</span>
-                {{ if category }}
-				<div class="category">
-					{{ helper:lang line="blog:category_label" }}
-					<span><a href="{{ url:site }}blog/category/{{ category:slug }}">{{ category:title }}</a></span>
-				</div>
-				{{ endif }}
 
-				{{ if keywords }}
-				<div class="keywords">
-					<div class="tittle_tag">Palabras clave:</div>
-					<div class="cont_tag">
-						{{ keywords }}
-							<span class="tag"><a href="{{ url:site }}blog/tagged/{{ keyword }}">{{ keyword }}</a></span>
-						{{ /keywords }}
+<div class="titulo-interna">
+	<div class="titulo-interna-texto">BLOG DE MARTHA ISABEL</div>
+	<ol class="breadcrumb">
+		<li><a href="">Inicio</a></li>
+		<li class="active"><span class="label label-default">Blog</span></li>
+	</ol>
+</div>
+
+<div class="container blog">
+	<div class="row">
+		<div class="col-xs-12 col-md-8">
+			{{ if posts }}
+			{{ posts }}
+			<div class="row blog-item">
+				<div class="col-md-12">
+					<div class="blog-item-titulo">
+						<a href="blog-detalle.html">{{ title }}</a>
 					</div>
 				</div>
+				{{ if image }}
+				<div class="col-xs-12 col-md-4">
+					<a href="blog-detalle.html"><img src="{{ url:site }}{{ image }}" alt="" class="img-responsive" /></a>
+				</div>
 				{{ endif }}
-            </div>
-        </div>
-
-
-			
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			
-         
-			<div class="preview mtop10">
-				{{ preview }}
+				<div class="col-xs-12 col-md-8">
+					<div class="texto">
+						<p>{{ preview }}</p>
+						<p><a href="{{ url }}" class="home-boton">Leer más</a></p>
+					</div>
+				</div>
 			</div>
-			<div class="clear"></div>
-			<div align="right"><a href="{{ url }}" class="btn btn-primary mtop10">Ver Más</a></div>
-		<hr />
+			{{ /posts }}
+			{{ pagination }}
+			<script>
+				$(function() {
+				  $('.pagination ul').addClass('pagination pull-right');
+				});
+			</script>
+			{{ else }}
+				{{ helper:lang line="blog:currently_no_posts" }}
+			{{ endif }}
 		</div>
-	</div>
-	
-	{{ /posts }}
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="row">
-		{{ pagination }}
-		</div>
-	</div>
-{{ else }}
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="row">
-			{{ helper:lang line="blog:currently_no_posts" }}
-		</div>
-	</div>
-{{ endif }}
 
+		<div class="col-xs-12 col-md-4">
+			<div class="blog-cat"><span class="glyphicon glyphicon-comment"></span> Post recientes</div>
+			<ul class="blog-cat-lista">
+				{{ blog:posts limit="5" }}
+				<li><a href="{{ url }}">{{ title }}</a></li>
+				{{ /blog:posts }}
+			</ul>
+			<div class="blog-cat"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
+			<ul class="blog-cat-lista">
+				{{ blog:categories }}
+				<li><a href="{{ url:site }}blog/category/{{ slug }}">{{ title }}</a></li>
+				{{ /blog:categories }}
+			</ul>
+			<div class="blog-cat"><span class="glyphicon glyphicon-tag"></span> Tags</div>
+			<ul class="blog-cat-lista">
+				{{ blog:tags }}
+				<li><a href="{{ url }}">{{ title }}</a></li>
+				{{ /blog:tags }}
+			</ul>
+		</div>
+	</div>
 </div>

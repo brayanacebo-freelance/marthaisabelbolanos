@@ -59,7 +59,7 @@ class Blog extends Public_Controller
 		$params = array(
 			'stream'		=> 'blog',
 			'namespace'		=> 'blogs',
-			'limit'			=> Settings::get('records_per_page'),
+			'limit'			=> 10,
 			'where'			=> "`status` = 'live'",
 			'paginate'		=> 'yes',
 			'pag_base'		=> site_url('blog/page'),

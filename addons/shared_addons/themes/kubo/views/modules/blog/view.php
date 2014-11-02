@@ -1,61 +1,61 @@
-<div class="container">
+<div class="titulo-interna">
+	<div class="titulo-interna-texto">BLOG DE MARTHA ISABEL</div>
+	<ol class="breadcrumb">
+	  <li><a href="index.html">Inicio</a></li>
+	  <li class="active"><span class="label label-default"><a href="{{ url:site }}blog" style="color: white">Blog</a></span></li>
+	</ol>
+</div>
 
-	<!-- Post heading -->	
+<div class="container blog">
+	<div class="row">
+	  <div class="col-xs-12 col-md-8">
+	  	
+	  	{{ post }}
+	  	<div class="row blog-item">
+	  		<div class="col-md-12">
+	  			<div class="blog-item-titulo">
+		  			<a href="blog-detalle.html">{{ title }}</a>
+		  		</div>
+	  		</div>
+	  		{{ if image }}
+	  		<div class="col-xs-12 col-md-12">
+				<a><img src="{{ image }}" alt="{{ title }}" class="img-responsive" /></a>
+	  		</div>
+	  		{{ endif }}
+	  		<div class="col-xs-12 col-md-12">
+	  			<div class="texto">
+	  				{{ body }}
+	  			</div>
+	  		</div>
+	  	</div>
+	  	{{ /post }}
 
-{{ post }}
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<h1>{{ title }}</h1>
-		<div class="author">
-            <div>{{ helper:lang line="blog:written_by_label" }}
-            <a href="{{ url:site }}user/{{ created_by:user_id }}">{{ created_by:display_name }}</a></div>
-            <span class="date">{{ helper:lang line="blog:posted_label" }} {{ helper:date timestamp=created_on }}</span>
-            {{ if category }}
-			<div class="category">
-				{{ helper:lang line="blog:category_label" }}
-				<span><a href="{{ url:site }}blog/category/{{ category:slug }}">{{ category:title }}</a></span>
-			</div>
-			{{ endif }}
+	<?php if (is_logged_in()): ?>
+	<?php echo $this->comments->form() ?>
+	<?php endif; ?>
 
-			{{ if keywords }}
-			<div class="keywords">
-				<div class="tittle_tag">Palabras clave:</div>
-				<div class="cont_tag">
-					{{ keywords }}
-						<span class="tag"><a href="{{ url:site }}blog/tagged/{{ keyword }}">{{ keyword }}</a></span>
-					{{ /keywords }}
-				</div>
-			</div>
-			{{ endif }}
-        </div>
-	</div>
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="blog_body mtop10">
-			{{ body }}
+	<?php echo $this->comments->display() ?>
+	  	
+	  </div>
+	  <div class="col-xs-12 col-md-4">
+			<div class="blog-cat"><span class="glyphicon glyphicon-comment"></span> Post recientes</div>
+			<ul class="blog-cat-lista">
+				{{ blog:posts limit="5" }}
+				<li><a href="{{ url }}">{{ title }}</a></li>
+				{{ /blog:posts }}
+			</ul>
+			<div class="blog-cat"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
+			<ul class="blog-cat-lista">
+				{{ blog:categories }}
+				<li><a href="{{ url:site }}blog/category/{{ slug }}">{{ title }}</a></li>
+				{{ /blog:categories }}
+			</ul>
+			<div class="blog-cat"><span class="glyphicon glyphicon-tag"></span> Tags</div>
+			<ul class="blog-cat-lista">
+				{{ blog:tags }}
+				<li><a href="{{ url }}">{{ title }}</a></li>
+				{{ /blog:tags }}
+			</ul>
 		</div>
-		<div class="clear"></div>
 	</div>
-</div>
-
-{{ /post }}
-
-<?php if (Settings::get('enable_comments')): ?>
-
-<div id="comments" class="panel panel-info mtop20">
-	<div class="panel-heading">
-		<h4><?php echo lang('comments:title') ?></h4>
-	</div>
-	<div id="existing-comments" class="panel-body">
-		<?php echo $this->comments->display() ?>
-	</div>
-
-	<?php if ($form_display): ?>
-		<?php echo $this->comments->form() ?>
-	<?php else: ?>
-	<?php echo sprintf(lang('blog:disabled_after'), strtolower(lang('global:duration:'.str_replace(' ', '-', $post[0]['comments_enabled'])))) ?>
-	<?php endif ?>
-</div>
-
-<?php endif ?>
-
 </div>
