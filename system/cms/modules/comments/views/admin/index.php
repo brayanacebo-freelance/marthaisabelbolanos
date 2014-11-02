@@ -14,7 +14,7 @@
 										<th><?php echo lang('comments:item_label') ?></th>
 										<th><?php echo lang('global:author') ?></th>
 										<th><?php echo lang('comments_active.date_label') ?></th>
-										<th width="<?php echo Settings::get('moderate_comments') ? 265 : 120 ?>"></th>
+										<th width="<?php echo Settings::get('moderate_comments') ? 265 : 130 ?>"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -44,20 +44,16 @@
 						<td class="align-center buttons buttons-small">
 							<?php if ($this->settings->moderate_comments): ?>
 							<?php if ($comment->is_active): ?>
-							<?php echo anchor('admin/comments/unapprove/'.$comment->id, lang('buttons:deactivate'), 'class="button deactivate"') ?>
+							<a href="<?php echo site_url('admin/comments/unapprove/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
 						<?php else: ?>
-						<?php echo anchor('admin/comments/approve/'.$comment->id, lang('buttons:activate'), 'class="button activate"') ?>
+						<a href="<?php echo site_url('admin/comments/approve/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
 					<?php endif ?>
 				<?php endif ?>
 				
-				<?php echo anchor('admin/comments/edit/'.$comment->id, lang('global:edit'), 'class="btn blue small"') ?>
-				<?php echo anchor('admin/comments/delete/'.$comment->id, lang('global:delete'), array('class'=>'btn red small')) ?>
-				<?php echo anchor('admin/comments/report/'.$comment->id, 'Report', array('class'=>'btn red small')) ?>
+				<a href="<?php echo site_url('admin/comments/edit/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+				<a href="<?php echo site_url('admin/comments/delete/' . $comment->id) ?>" title="<?php echo lang('global:delete')?>" class="btn btn-danger btn-sm" data-toggle="modal" href="#ModalEliminar"><i class="fa fa-trash-o"></i></a>
+				<a href="<?php echo site_url('admin/comments/report/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-warning btn-sm"><i class="fa fa-exclamation-triangle"></i></a>
 			</td>
-
-			<a href="<?php echo site_url('admin/comments/edit/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
-			<a href="<?php echo site_url('admin/comments/delete/' . $comment->id) ?>" title="<?php echo lang('global:delete')?>" class="btn btn-danger btn-sm" data-toggle="modal" href="#ModalEliminar"><i class="fa fa-trash-o"></i></a>
-			<a href="<?php echo site_url('admin/comments/report/' . $comment->id) ?>" title="<?php echo lang('global:edit')?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
 		</td>
 	</tr>
 <?php endforeach ?>

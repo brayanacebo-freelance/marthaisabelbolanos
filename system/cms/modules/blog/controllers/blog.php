@@ -68,7 +68,6 @@ class Blog extends Public_Controller
 		);
 
 		$posts = $this->streams->entries->get_entries($params);
-
 		// Process posts
 		foreach ($posts['entries'] as &$post)
 		{

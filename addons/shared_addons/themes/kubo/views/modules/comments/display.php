@@ -1,4 +1,5 @@
 <?php if ($comments): ?>
+<?php $comments = array_map("unserialize", array_unique(array_map("serialize", $comments))); ?>
 <section class="comentarios">
 	<?php foreach ($comments as $item): ?>
 		<article class="comentario">
