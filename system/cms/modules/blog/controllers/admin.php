@@ -135,6 +135,7 @@ class Admin extends Admin_Controller
 
 		// Using this data, get the relevant results
 		$blog = $this->blog_m
+		->group_by('id')
 		->limit($pagination['limit'], $pagination['offset'])
 		->get_many_by($base_where);
 

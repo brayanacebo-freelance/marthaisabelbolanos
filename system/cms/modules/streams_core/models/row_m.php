@@ -525,6 +525,8 @@ class Row_m extends MY_Model {
 			$this->sql['where'][] = 'DAY('.$this->format_mysql_date($date_by, $stream->stream_namespace).')='.$this->db->escape($day);
 		}
 
+
+
 		// -------------------------------------
 		// Restrict User
 		// -------------------------------------
@@ -624,6 +626,7 @@ class Row_m extends MY_Model {
 		// -------------------------------------
 		// Run Our Select
 		// -------------------------------------
+
 
 		$sql = $this->build_query($this->sql);
 
@@ -904,7 +907,7 @@ class Row_m extends MY_Model {
 		{$join}
 		{$where}
 		{$misc}
-		{$order_by} ";
+		GROUP BY id {$order_by} ";
 	}
 
 	// --------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-10-2014 a las 05:13:33
+-- Tiempo de generación: 02-11-2014 a las 18:13:56
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -176,14 +176,20 @@ CREATE TABLE IF NOT EXISTS `default_album_images` (
   `path` varchar(455) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `default_album_images`
 --
 
 INSERT INTO `default_album_images` (`id`, `album_id`, `path`, `created_at`) VALUES
-(2, 4, 'uploads/default/albums/bbb1a73dc65b7861e720f5de4c890503.png', '2014-10-19 20:28:36');
+(2, 4, 'uploads/default/albums/bbb1a73dc65b7861e720f5de4c890503.png', '2014-10-19 20:28:36'),
+(3, 2, 'uploads/default/albums/4d7c077b2324869bcfd7d3b7e73ae762.jpg', '2014-10-30 02:40:21'),
+(4, 2, 'uploads/default/albums/9f1c357f9a8fe2aea08a906d597d2b4b.jpg', '2014-10-30 02:40:28'),
+(5, 2, 'uploads/default/albums/1bba03f9e537799a9f6d2e33433f2f1a.jpg', '2014-10-30 02:40:34'),
+(6, 2, 'uploads/default/albums/bf9ad6773451c19c7551f739ff31db4b.jpg', '2014-10-30 02:40:40'),
+(7, 2, 'uploads/default/albums/45b26298f68dad96a8f844b27c5be7ef.jpg', '2014-10-30 02:40:48'),
+(8, 2, 'uploads/default/albums/a3a9ecd3893567cad77756cfc61172c3.jpg', '2014-10-30 02:40:59');
 
 -- --------------------------------------------------------
 
@@ -211,21 +217,21 @@ CREATE TABLE IF NOT EXISTS `default_blog` (
   `status` enum('draft','live') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'draft',
   `type` set('html','markdown','wysiwyg-advanced','wysiwyg-simple') COLLATE utf8_unicode_ci DEFAULT NULL,
   `preview_hash` char(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `image` varchar(455) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
 -- Volcado de datos para la tabla `default_blog`
 --
 
-INSERT INTO `default_blog` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `intro`, `title`, `slug`, `category_id`, `body`, `parsed`, `keywords`, `author_id`, `created_on`, `updated_on`, `comments_enabled`, `status`, `type`, `preview_hash`) VALUES
-(2, '2014-10-13 21:20:00', NULL, 1, 1, 'adfsdaf', 'sadf', 'asdf', 0, 'afdsadf', '', '', 1, 1413228000, 0, '3 months', 'live', 'wysiwyg-advanced', ''),
-(3, '2014-10-13 21:21:00', NULL, 1, 2, 'asdf', 'sdfsadf', 'sadfasdf', 0, 'sadf', '', '', 1, 1413228060, 0, '3 months', 'draft', 'wysiwyg-advanced', 'be50b3185e142760ac9c5140b9a49f49'),
-(4, '2014-10-13 21:22:00', NULL, 1, 3, 'fdghdfgh', 'fdgh', 'dfhd', 0, 'ghfdghdfgh', '', '', 1, 1413228120, 0, '3 months', 'draft', 'wysiwyg-advanced', '1bfb894d943be7f72efad6396dad6666'),
-(5, '2014-10-13 21:26:00', NULL, 1, 4, 'asdfasdf', 'asdf', 'asdfasdfff', 0, 'asdf', '', '', 1, 1413228360, 0, '3 months', 'draft', 'wysiwyg-advanced', 'd4c5d450051be38793b277b7921592fd'),
-(6, '2014-10-13 21:31:00', NULL, 1, 5, 'cxvbcxvb', 'zxcv', 'zxcv', 0, 'bzxvb', '', '', 1, 1413228660, 0, '3 months', 'draft', 'wysiwyg-advanced', '22980eb2dbb28a6296f12d7e21936033'),
-(7, '2014-10-15 07:49:00', '2014-10-15 07:49:00', 1, 6, '<p>Esta es mi grandiosa intro del blog #1</p>\n', 'hola mundo 9876sdf', 'hola-mundo-9876sdf', 0, '<p>el propio contenido</p>', '', '90df8116b91a1203cde3845a64d7b494', 1, 1413352140, 1413352140, '2 weeks', 'live', 'html', ''),
-(8, '2014-10-14 01:31:00', NULL, 1, 7, '<p>asdf</p>', 'heidy valero', 'heidy-valero', 0, '<p>fasdf</p>', '', '', 1, 1413243060, 0, '3 months', 'draft', 'html', '6fd4a6a4ff04f3928281e33fa778e3fc');
+INSERT INTO `default_blog` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `intro`, `title`, `slug`, `category_id`, `body`, `parsed`, `keywords`, `author_id`, `created_on`, `updated_on`, `comments_enabled`, `status`, `type`, `preview_hash`, `image`) VALUES
+(16, '2014-11-02 16:55:00', '2014-11-02 16:55:00', 2, 1, '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n', 'LOREM IPSUM DOLOR SIT AMET BEATAE VITAE DICTA SUNT', 'lorem-ipsum-dolor-sit-amet-beatae-vitae-dicta-sunt', 3, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;<a href="">ullamco laboris nisi</a> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<a href="">sed quia non numquam eius modi tempora inciduntz</a>&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>', '', '', 2, 1414943700, 1414943700, '3 months', 'live', 'html', '', 'uploads/default/blog/bae670144f7e280fd5d9b19ed6e4283d.jpg'),
+(17, '2014-11-02 16:58:00', NULL, 2, 2, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;<a href="">ullamco laboris nisi</a> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur si</p>', 'LOREM IPSUM DOLOR SIT AMET', 'lorem-ipsum-dolor-sit-amet', 6, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;<a href="">ullamco laboris nisi</a> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<a href="">sed quia non numquam eius modi tempora inciduntz</a>&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>', '', '', 2, 1414943880, 0, '3 months', 'live', 'html', '', 'uploads/default/blog/584ad2f994726c1e0e4b8b4beab2f9e9.jpg'),
+(18, '2014-11-02 16:59:00', NULL, 2, 3, '<p>tatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem seq</p>', 'litia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distincti', 'litia-animi-id-est-laborum-et-dolorum-fuga-et-harum-quidem-rerum-facilis-est-et-expedita-distincti', 7, '<p>tatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<a href="">sed quia non numquam eius modi tempora inciduntz</a>&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reic</p>', '', '', 2, 1414943940, 0, '3 months', 'live', 'html', '', 'uploads/default/blog/b18ff9f39a58f4f01fefafdd4924fccf.jpg'),
+(19, '2014-11-02 17:01:00', NULL, 2, 4, '<p>piciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan', 'sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudan', 3, '<p>piciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>', '', '', 2, 1414944060, 0, '3 months', 'live', 'html', '', 'uploads/default/blog/2c3b7add97efda18208bd660b3fa8fef.jpg'),
+(20, '2014-11-02 17:01:00', NULL, 2, 5, '<p><span style="line-height: 1.6em;">&nbsp;non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</span></p>', 'erspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam re', 'erspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-re', 7, '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<a href="">sed quia non numquam eius modi tempora inciduntz</a>&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</p>', '', '', 2, 1414944060, 0, '3 months', 'live', 'html', '', 'uploads/default/blog/3c279970073fbce6c513dd8276f7f7e1.jpg'),
+(21, '2014-11-02 17:02:00', '2014-11-02 17:02:00', 2, 6, '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo&nbsp;<span style="line-height: 1.6em;">um quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</span></p>\n', 'Sed ut perspiciatis', 'sed-ut-perspiciatis', 7, '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;<a href="">sed quia non numquam eius modi tempora inciduntz</a>&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\n\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole</p>', '', 'a6c7beb3497554e0f4f2e9a2107c52f8', 2, 1414944120, 1414944120, '3 months', 'live', 'html', '', 'uploads/default/blog/a32b7a4ad2c36d10798e22d823858c5d.jpg');
 
 -- --------------------------------------------------------
 
@@ -241,16 +247,16 @@ CREATE TABLE IF NOT EXISTS `default_blog_categories` (
   UNIQUE KEY `unique_slug` (`slug`),
   UNIQUE KEY `unique_title` (`title`),
   KEY `slug` (`slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `default_blog_categories`
 --
 
 INSERT INTO `default_blog_categories` (`id`, `slug`, `title`) VALUES
-(3, 'd', 'd'),
-(4, 'B', 'B'),
-(5, 'c', 'c');
+(3, 'novelas', 'Novelas'),
+(6, 'series', 'Series'),
+(7, 'peliculas', 'Peliculas');
 
 -- --------------------------------------------------------
 
@@ -392,7 +398,16 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('529b9ee8f82309c3c4d2c91636572d8b', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413766069, ''),
 ('bad5ec7e048b5eafbb7a0c03551cff60', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413791888, 'a:6:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";}'),
 ('c91a5ff5b660ff01f676d2f23fdc834c', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413766689, ''),
-('42eaa45b6d42c3dcdff46fe725a7aea4', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413792623, 'a:6:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";}');
+('42eaa45b6d42c3dcdff46fe725a7aea4', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413792623, 'a:6:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";}'),
+('ebdd75ca588d26e94cb09a069944d246', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413847287, 'a:1:{s:14:"admin_redirect";s:5:"admin";}'),
+('9713b3706cddfeb773449ab6220a721e', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1413847376, 'a:6:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
+('70980d77c2792dadfcdfa2b14759d290', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414455903, 'a:1:{s:14:"admin_redirect";s:5:"admin";}'),
+('4cf59eaf826303bc90983849ab059b53', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414455905, 'a:6:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";}'),
+('2be3bc07e789006292110c5f2d5bee66', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414456476, 'a:1:{s:14:"admin_redirect";s:5:"admin";}'),
+('25d57563c4301708e553f6442eaea2ae', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414457680, 'a:6:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
+('d445b79cab7e3b055bda0a4217504c00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414470124, 'a:7:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";s:18:"flash:old:referrer";s:31:"blog/2014/10/hola-mundo-9876sdf";}'),
+('05100f58112146f873bee79767373f9a', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1414657416, 'a:6:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
+('c06c211b874a5ffd1f2ba43a2a4264e0', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1414944801, 'a:7:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";s:18:"flash:old:referrer";s:105:"blog/2014/11/sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudan";}');
 
 -- --------------------------------------------------------
 
@@ -419,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `default_comments` (
   `created_on` int(11) NOT NULL DEFAULT '0',
   `ip_address` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `default_comments`
@@ -579,18 +594,18 @@ INSERT INTO `default_data_field_assignments` (`id`, `sort_order`, `stream_id`, `
 (2, 1, 2, 2, 'no', 'no', NULL, NULL),
 (3, 1, 3, 3, 'yes', 'no', NULL, NULL),
 (4, 2, 3, 4, 'yes', 'no', NULL, NULL),
-(5, 3, 3, 5, 'no', 'no', NULL, NULL),
-(6, 4, 3, 6, 'no', 'no', NULL, NULL),
-(7, 5, 3, 7, 'no', 'no', NULL, NULL),
-(8, 6, 3, 8, 'no', 'no', NULL, NULL),
-(9, 7, 3, 9, 'no', 'no', NULL, NULL),
-(10, 8, 3, 10, 'no', 'no', NULL, NULL),
-(11, 9, 3, 11, 'no', 'no', NULL, NULL),
-(12, 10, 3, 12, 'no', 'no', NULL, NULL),
-(13, 11, 3, 13, 'no', 'no', NULL, NULL),
-(14, 12, 3, 14, 'no', 'no', NULL, NULL),
-(15, 13, 3, 15, 'no', 'no', NULL, NULL),
-(16, 14, 3, 16, 'no', 'no', NULL, NULL);
+(5, 2, 3, 5, 'no', 'no', NULL, NULL),
+(6, 3, 3, 6, 'no', 'no', NULL, NULL),
+(7, 4, 3, 7, 'no', 'no', NULL, NULL),
+(8, 5, 3, 8, 'no', 'no', NULL, NULL),
+(9, 6, 3, 9, 'no', 'no', NULL, NULL),
+(10, 7, 3, 10, 'no', 'no', NULL, NULL),
+(11, 8, 3, 11, 'no', 'no', NULL, NULL),
+(12, 9, 3, 12, 'no', 'no', NULL, NULL),
+(13, 10, 3, 13, 'no', 'no', NULL, NULL),
+(14, 11, 3, 14, 'no', 'no', NULL, NULL),
+(15, 12, 3, 15, 'no', 'no', NULL, NULL),
+(16, 13, 3, 16, 'no', 'no', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -779,7 +794,7 @@ CREATE TABLE IF NOT EXISTS `default_keywords` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `default_keywords`
@@ -787,7 +802,10 @@ CREATE TABLE IF NOT EXISTS `default_keywords` (
 
 INSERT INTO `default_keywords` (`id`, `name`) VALUES
 (1, 'intro'),
-(2, 'asdasd');
+(2, 'asdasd'),
+(3, 'tag'),
+(4, 'prueba'),
+(5, 'lorem ipsum');
 
 -- --------------------------------------------------------
 
@@ -800,15 +818,18 @@ CREATE TABLE IF NOT EXISTS `default_keywords_applied` (
   `hash` char(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `keyword_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
 
 --
 -- Volcado de datos para la tabla `default_keywords_applied`
 --
 
 INSERT INTO `default_keywords_applied` (`id`, `hash`, `keyword_id`) VALUES
-(21, '90df8116b91a1203cde3845a64d7b494', 2),
-(22, '90df8116b91a1203cde3845a64d7b494', 1);
+(25, '5274e9643f54a406fe2ee6a699fa16cd', 2),
+(26, '5274e9643f54a406fe2ee6a699fa16cd', 1),
+(29, '44483bce92cd70f0721da0fba23a5d4f', 4),
+(30, '44483bce92cd70f0721da0fba23a5d4f', 3),
+(31, 'a6c7beb3497554e0f4f2e9a2107c52f8', 5);
 
 -- --------------------------------------------------------
 
@@ -862,7 +883,7 @@ INSERT INTO `default_modules` (`id`, `name`, `slug`, `version`, `type`, `descrip
 (2, 'a:11:{s:2:"en";s:12:"Streams Core";s:2:"pt";s:14:"Núcleo Fluxos";s:2:"fr";s:10:"Noyau Flux";s:2:"el";s:23:"Πυρήνας Ροών";s:2:"se";s:18:"Streams grundmodul";s:2:"tw";s:14:"Streams 核心";s:2:"cn";s:14:"Streams 核心";s:2:"ar";s:31:"الجداول الأساسية";s:2:"it";s:12:"Streams Core";s:2:"fa";s:26:"هسته استریم ها";s:2:"fi";s:13:"Striimit ydin";}', 'streams_core', '1.0.0', NULL, 'a:11:{s:2:"en";s:29:"Core data module for streams.";s:2:"pt";s:37:"Módulo central de dados para fluxos.";s:2:"fr";s:32:"Noyau de données pour les Flux.";s:2:"el";s:113:"Προγραμματιστικός πυρήνας για την λειτουργία ροών δεδομένων.";s:2:"se";s:50:"Streams grundmodul för enklare hantering av data.";s:2:"tw";s:29:"Streams 核心資料模組。";s:2:"cn";s:29:"Streams 核心资料模组。";s:2:"ar";s:57:"وحدة البيانات الأساسية للجداول";s:2:"it";s:17:"Core dello Stream";s:2:"fa";s:48:"ماژول مرکزی برای استریم ها";s:2:"fi";s:48:"Ydin datan hallinoiva moduuli striimejä varten.";}', 1, 0, 0, '0', 1, 1, 1, 1411677714),
 (3, 'a:21:{s:2:"en";s:15:"Email Templates";s:2:"ar";s:48:"قوالب الرسائل الإلكترونية";s:2:"br";s:17:"Modelos de e-mail";s:2:"pt";s:17:"Modelos de e-mail";s:2:"da";s:16:"Email skabeloner";s:2:"el";s:22:"Δυναμικά email";s:2:"es";s:19:"Plantillas de email";s:2:"fa";s:26:"قالب های ایمیل";s:2:"fr";s:17:"Modèles d''emails";s:2:"he";s:12:"תבניות";s:2:"id";s:14:"Template Email";s:2:"lt";s:22:"El. laiškų šablonai";s:2:"nl";s:15:"Email sjablonen";s:2:"ru";s:25:"Шаблоны почты";s:2:"sl";s:14:"Email predloge";s:2:"tw";s:12:"郵件範本";s:2:"cn";s:12:"邮件范本";s:2:"hu";s:15:"E-mail sablonok";s:2:"fi";s:25:"Sähköposti viestipohjat";s:2:"th";s:33:"แม่แบบอีเมล";s:2:"se";s:12:"E-postmallar";}', 'templates', '1.1.0', NULL, 'a:21:{s:2:"en";s:46:"Create, edit, and save dynamic email templates";s:2:"ar";s:97:"أنشئ، عدّل واحفظ قوالب البريد الإلكترني الديناميكية.";s:2:"br";s:51:"Criar, editar e salvar modelos de e-mail dinâmicos";s:2:"pt";s:51:"Criar, editar e salvar modelos de e-mail dinâmicos";s:2:"da";s:49:"Opret, redigér og gem dynamiske emailskabeloner.";s:2:"el";s:108:"Δημιουργήστε, επεξεργαστείτε και αποθηκεύστε δυναμικά email.";s:2:"es";s:54:"Crear, editar y guardar plantillas de email dinámicas";s:2:"fa";s:92:"ایحاد، ویرایش و ذخیره ی قالب های ایمیل به صورت پویا";s:2:"fr";s:61:"Créer, éditer et sauver dynamiquement des modèles d''emails";s:2:"he";s:54:"ניהול של תבניות דואר אלקטרוני";s:2:"id";s:55:"Membuat, mengedit, dan menyimpan template email dinamis";s:2:"lt";s:58:"Kurk, tvarkyk ir saugok dinaminius el. laiškų šablonus.";s:2:"nl";s:49:"Maak, bewerk, en beheer dynamische emailsjablonen";s:2:"ru";s:127:"Создавайте, редактируйте и сохраняйте динамические почтовые шаблоны";s:2:"sl";s:52:"Ustvari, uredi in shrani spremenljive email predloge";s:2:"tw";s:61:"新增、編輯與儲存可顯示動態資料的 email 範本";s:2:"cn";s:61:"新增、编辑与储存可显示动态资料的 email 范本";s:2:"hu";s:63:"Csináld, szerkeszd és mentsd el a dinamikus e-mail sablonokat";s:2:"fi";s:66:"Lisää, muokkaa ja tallenna dynaamisia sähköposti viestipohjia.";s:2:"th";s:129:"การสร้างแก้ไขและบันทึกแม่แบบอีเมลแบบไดนามิก";s:2:"se";s:49:"Skapa, redigera och spara dynamiska E-postmallar.";}', 1, 0, 1, 'structure', 1, 1, 1, 1411677714),
 (4, 'a:25:{s:2:"en";s:7:"Add-ons";s:2:"ar";s:16:"الإضافات";s:2:"br";s:12:"Complementos";s:2:"pt";s:12:"Complementos";s:2:"cs";s:8:"Doplňky";s:2:"da";s:7:"Add-ons";s:2:"de";s:13:"Erweiterungen";s:2:"el";s:16:"Πρόσθετα";s:2:"es";s:9:"Agregados";s:2:"fa";s:17:"افزونه ها";s:2:"fi";s:9:"Lisäosat";s:2:"fr";s:10:"Extensions";s:2:"he";s:12:"תוספות";s:2:"id";s:7:"Pengaya";s:2:"it";s:7:"Add-ons";s:2:"lt";s:7:"Priedai";s:2:"nl";s:7:"Add-ons";s:2:"pl";s:12:"Rozszerzenia";s:2:"ru";s:20:"Дополнения";s:2:"sl";s:11:"Razširitve";s:2:"tw";s:12:"附加模組";s:2:"cn";s:12:"附加模组";s:2:"hu";s:14:"Bővítmények";s:2:"th";s:27:"ส่วนเสริม";s:2:"se";s:8:"Tillägg";}', 'addons', '2.0.0', NULL, 'a:25:{s:2:"en";s:59:"Allows admins to see a list of currently installed modules.";s:2:"ar";s:91:"تُمكّن المُدراء من معاينة جميع الوحدات المُثبّتة.";s:2:"br";s:75:"Permite aos administradores ver a lista dos módulos instalados atualmente.";s:2:"pt";s:75:"Permite aos administradores ver a lista dos módulos instalados atualmente.";s:2:"cs";s:68:"Umožňuje administrátorům vidět seznam nainstalovaných modulů.";s:2:"da";s:63:"Lader administratorer se en liste over de installerede moduler.";s:2:"de";s:56:"Zeigt Administratoren alle aktuell installierten Module.";s:2:"el";s:152:"Επιτρέπει στους διαχειριστές να προβάλουν μια λίστα των εγκατεστημένων πρόσθετων.";s:2:"es";s:71:"Permite a los administradores ver una lista de los módulos instalados.";s:2:"fa";s:93:"مشاهده لیست افزونه ها و مدیریت آنها برای ادمین سایت";s:2:"fi";s:60:"Listaa järjestelmänvalvojalle käytössä olevat moduulit.";s:2:"fr";s:66:"Permet aux administrateurs de voir la liste des modules installés";s:2:"he";s:160:"נותן אופציה למנהל לראות רשימה של המודולים אשר מותקנים כעת באתר או להתקין מודולים נוספים";s:2:"id";s:57:"Memperlihatkan kepada admin daftar modul yang terinstall.";s:2:"it";s:83:"Permette agli amministratori di vedere una lista dei moduli attualmente installati.";s:2:"lt";s:75:"Vartotojai ir svečiai gali komentuoti jūsų naujienas, puslapius ar foto.";s:2:"nl";s:79:"Stelt admins in staat om een overzicht van geinstalleerde modules te genereren.";s:2:"pl";s:81:"Umożliwiają administratorowi wgląd do listy obecnie zainstalowanych modułów.";s:2:"ru";s:83:"Список модулей, которые установлены на сайте.";s:2:"sl";s:65:"Dovoljuje administratorjem pregled trenutno nameščenih modulov.";s:2:"tw";s:54:"管理員可以檢視目前已經安裝模組的列表";s:2:"cn";s:54:"管理员可以检视目前已经安装模组的列表";s:2:"hu";s:79:"Lehetővé teszi az adminoknak, hogy lássák a telepített modulok listáját.";s:2:"th";s:162:"ช่วยให้ผู้ดูแลระบบดูรายการของโมดูลที่ติดตั้งในปัจจุบัน";s:2:"se";s:67:"Gör det möjligt för administratören att se installerade mouler.";}', 0, 0, 1, '0', 1, 1, 1, 1411677714),
-(5, 'a:17:{s:2:"en";s:4:"Blog";s:2:"ar";s:16:"المدوّنة";s:2:"br";s:4:"Blog";s:2:"pt";s:4:"Blog";s:2:"el";s:18:"Ιστολόγιο";s:2:"fa";s:8:"بلاگ";s:2:"he";s:8:"בלוג";s:2:"id";s:4:"Blog";s:2:"lt";s:6:"Blogas";s:2:"pl";s:4:"Blog";s:2:"ru";s:8:"Блог";s:2:"tw";s:6:"文章";s:2:"cn";s:6:"文章";s:2:"hu";s:4:"Blog";s:2:"fi";s:5:"Blogi";s:2:"th";s:15:"บล็อก";s:2:"se";s:5:"Blogg";}', 'blog', '2.0.0', NULL, 'a:25:{s:2:"en";s:18:"Post blog entries.";s:2:"ar";s:48:"أنشر المقالات على مدوّنتك.";s:2:"br";s:30:"Escrever publicações de blog";s:2:"pt";s:39:"Escrever e editar publicações no blog";s:2:"cs";s:49:"Publikujte nové články a příspěvky na blog.";s:2:"da";s:17:"Skriv blogindlæg";s:2:"de";s:47:"Veröffentliche neue Artikel und Blog-Einträge";s:2:"sl";s:23:"Objavite blog prispevke";s:2:"fi";s:28:"Kirjoita blogi artikkeleita.";s:2:"el";s:93:"Δημιουργήστε άρθρα και εγγραφές στο ιστολόγιο σας.";s:2:"es";s:54:"Escribe entradas para los artículos y blog (web log).";s:2:"fa";s:44:"مقالات منتشر شده در بلاگ";s:2:"fr";s:34:"Poster des articles d''actualités.";s:2:"he";s:19:"ניהול בלוג";s:2:"id";s:15:"Post entri blog";s:2:"it";s:36:"Pubblica notizie e post per il blog.";s:2:"lt";s:40:"Rašykite naujienas bei blog''o įrašus.";s:2:"nl";s:41:"Post nieuwsartikelen en blogs op uw site.";s:2:"pl";s:27:"Dodawaj nowe wpisy na blogu";s:2:"ru";s:49:"Управление записями блога.";s:2:"tw";s:42:"發表新聞訊息、部落格等文章。";s:2:"cn";s:42:"发表新闻讯息、部落格等文章。";s:2:"th";s:48:"โพสต์รายการบล็อก";s:2:"hu";s:32:"Blog bejegyzések létrehozása.";s:2:"se";s:18:"Inlägg i bloggen.";}', 1, 1, 1, 'content', 1, 1, 1, 1413761871),
+(5, 'a:17:{s:2:"en";s:4:"Blog";s:2:"ar";s:16:"المدوّنة";s:2:"br";s:4:"Blog";s:2:"pt";s:4:"Blog";s:2:"el";s:18:"Ιστολόγιο";s:2:"fa";s:8:"بلاگ";s:2:"he";s:8:"בלוג";s:2:"id";s:4:"Blog";s:2:"lt";s:6:"Blogas";s:2:"pl";s:4:"Blog";s:2:"ru";s:8:"Блог";s:2:"tw";s:6:"文章";s:2:"cn";s:6:"文章";s:2:"hu";s:4:"Blog";s:2:"fi";s:5:"Blogi";s:2:"th";s:15:"บล็อก";s:2:"se";s:5:"Blogg";}', 'blog', '2.0.0', NULL, 'a:25:{s:2:"en";s:18:"Post blog entries.";s:2:"ar";s:48:"أنشر المقالات على مدوّنتك.";s:2:"br";s:30:"Escrever publicações de blog";s:2:"pt";s:39:"Escrever e editar publicações no blog";s:2:"cs";s:49:"Publikujte nové články a příspěvky na blog.";s:2:"da";s:17:"Skriv blogindlæg";s:2:"de";s:47:"Veröffentliche neue Artikel und Blog-Einträge";s:2:"sl";s:23:"Objavite blog prispevke";s:2:"fi";s:28:"Kirjoita blogi artikkeleita.";s:2:"el";s:93:"Δημιουργήστε άρθρα και εγγραφές στο ιστολόγιο σας.";s:2:"es";s:54:"Escribe entradas para los artículos y blog (web log).";s:2:"fa";s:44:"مقالات منتشر شده در بلاگ";s:2:"fr";s:34:"Poster des articles d''actualités.";s:2:"he";s:19:"ניהול בלוג";s:2:"id";s:15:"Post entri blog";s:2:"it";s:36:"Pubblica notizie e post per il blog.";s:2:"lt";s:40:"Rašykite naujienas bei blog''o įrašus.";s:2:"nl";s:41:"Post nieuwsartikelen en blogs op uw site.";s:2:"pl";s:27:"Dodawaj nowe wpisy na blogu";s:2:"ru";s:49:"Управление записями блога.";s:2:"tw";s:42:"發表新聞訊息、部落格等文章。";s:2:"cn";s:42:"发表新闻讯息、部落格等文章。";s:2:"th";s:48:"โพสต์รายการบล็อก";s:2:"hu";s:32:"Blog bejegyzések létrehozása.";s:2:"se";s:18:"Inlägg i bloggen.";}', 1, 1, 1, 'content', 1, 1, 1, 1414460236),
 (6, 'a:25:{s:2:"en";s:8:"Comments";s:2:"ar";s:18:"التعليقات";s:2:"br";s:12:"Comentários";s:2:"pt";s:12:"Comentários";s:2:"cs";s:11:"Komentáře";s:2:"da";s:11:"Kommentarer";s:2:"de";s:10:"Kommentare";s:2:"el";s:12:"Σχόλια";s:2:"es";s:11:"Comentarios";s:2:"fi";s:9:"Kommentit";s:2:"fr";s:12:"Commentaires";s:2:"fa";s:10:"نظرات";s:2:"he";s:12:"תגובות";s:2:"id";s:8:"Komentar";s:2:"it";s:8:"Commenti";s:2:"lt";s:10:"Komentarai";s:2:"nl";s:8:"Reacties";s:2:"pl";s:10:"Komentarze";s:2:"ru";s:22:"Комментарии";s:2:"sl";s:10:"Komentarji";s:2:"tw";s:6:"回應";s:2:"cn";s:6:"回应";s:2:"hu";s:16:"Hozzászólások";s:2:"th";s:33:"ความคิดเห็น";s:2:"se";s:11:"Kommentarer";}', 'comments', '1.1.0', NULL, 'a:25:{s:2:"en";s:76:"Users and guests can write comments for content like blog, pages and photos.";s:2:"ar";s:152:"يستطيع الأعضاء والزوّار كتابة التعليقات على المُحتوى كالأخبار، والصفحات والصّوَر.";s:2:"br";s:97:"Usuários e convidados podem escrever comentários para quase tudo com suporte nativo ao captcha.";s:2:"pt";s:100:"Utilizadores e convidados podem escrever comentários para quase tudo com suporte nativo ao captcha.";s:2:"cs";s:100:"Uživatelé a hosté mohou psát komentáře k obsahu, např. neovinkám, stránkám a fotografiím.";s:2:"da";s:83:"Brugere og besøgende kan skrive kommentarer til indhold som blog, sider og fotoer.";s:2:"de";s:65:"Benutzer und Gäste können für fast alles Kommentare schreiben.";s:2:"el";s:224:"Οι χρήστες και οι επισκέπτες μπορούν να αφήνουν σχόλια για περιεχόμενο όπως το ιστολόγιο, τις σελίδες και τις φωτογραφίες.";s:2:"es";s:130:"Los usuarios y visitantes pueden escribir comentarios en casi todo el contenido con el soporte de un sistema de captcha incluído.";s:2:"fa";s:168:"کاربران و مهمان ها می توانند نظرات خود را بر روی محتوای سایت در بلاگ و دیگر قسمت ها ارائه دهند";s:2:"fi";s:107:"Käyttäjät ja vieraat voivat kirjoittaa kommentteja eri sisältöihin kuten uutisiin, sivuihin ja kuviin.";s:2:"fr";s:130:"Les utilisateurs et les invités peuvent écrire des commentaires pour quasiment tout grâce au générateur de captcha intégré.";s:2:"he";s:94:"משתמשי האתר יכולים לרשום תגובות למאמרים, תמונות וכו";s:2:"id";s:100:"Pengguna dan pengunjung dapat menuliskan komentaruntuk setiap konten seperti blog, halaman dan foto.";s:2:"it";s:85:"Utenti e visitatori possono scrivere commenti ai contenuti quali blog, pagine e foto.";s:2:"lt";s:75:"Vartotojai ir svečiai gali komentuoti jūsų naujienas, puslapius ar foto.";s:2:"nl";s:52:"Gebruikers en gasten kunnen reageren op bijna alles.";s:2:"pl";s:93:"Użytkownicy i goście mogą dodawać komentarze z wbudowanym systemem zabezpieczeń captcha.";s:2:"ru";s:187:"Пользователи и гости могут добавлять комментарии к новостям, информационным страницам и фотографиям.";s:2:"sl";s:89:"Uporabniki in obiskovalci lahko vnesejo komentarje na vsebino kot je blok, stra ali slike";s:2:"tw";s:75:"用戶和訪客可以針對新聞、頁面與照片等內容發表回應。";s:2:"cn";s:75:"用户和访客可以针对新闻、页面与照片等内容发表回应。";s:2:"hu";s:117:"A felhasználók és a vendégek hozzászólásokat írhatnak a tartalomhoz (bejegyzésekhez, oldalakhoz, fotókhoz).";s:2:"th";s:240:"ผู้ใช้งานและผู้เยี่ยมชมสามารถเขียนความคิดเห็นในเนื้อหาของหน้าเว็บบล็อกและภาพถ่าย";s:2:"se";s:98:"Användare och besökare kan skriva kommentarer till innehåll som blogginlägg, sidor och bilder.";}', 0, 0, 1, 'content', 1, 1, 1, 1411677714),
 (7, 'a:25:{s:2:"en";s:7:"Contact";s:2:"ar";s:14:"الإتصال";s:2:"br";s:7:"Contato";s:2:"pt";s:8:"Contacto";s:2:"cs";s:7:"Kontakt";s:2:"da";s:7:"Kontakt";s:2:"de";s:7:"Kontakt";s:2:"el";s:22:"Επικοινωνία";s:2:"es";s:8:"Contacto";s:2:"fa";s:18:"تماس با ما";s:2:"fi";s:13:"Ota yhteyttä";s:2:"fr";s:7:"Contact";s:2:"he";s:17:"יצירת קשר";s:2:"id";s:6:"Kontak";s:2:"it";s:10:"Contattaci";s:2:"lt";s:18:"Kontaktinė formą";s:2:"nl";s:7:"Contact";s:2:"pl";s:7:"Kontakt";s:2:"ru";s:27:"Обратная связь";s:2:"sl";s:7:"Kontakt";s:2:"tw";s:12:"聯絡我們";s:2:"cn";s:12:"联络我们";s:2:"hu";s:9:"Kapcsolat";s:2:"th";s:18:"ติดต่อ";s:2:"se";s:7:"Kontakt";}', 'contact', '1.0.0', NULL, 'a:25:{s:2:"en";s:112:"Adds a form to your site that allows visitors to send emails to you without disclosing an email address to them.";s:2:"ar";s:157:"إضافة استمارة إلى موقعك تُمكّن الزوّار من مراسلتك دون علمهم بعنوان البريد الإلكتروني.";s:2:"br";s:139:"Adiciona um formulário para o seu site permitir aos visitantes que enviem e-mails para voce sem divulgar um endereço de e-mail para eles.";s:2:"pt";s:116:"Adiciona um formulário ao seu site que permite aos visitantes enviarem e-mails sem divulgar um endereço de e-mail.";s:2:"cs";s:149:"Přidá na web kontaktní formulář pro návštěvníky a uživatele, díky kterému vás mohou kontaktovat i bez znalosti vaší e-mailové adresy.";s:2:"da";s:123:"Tilføjer en formular på din side som tillader besøgende at sende mails til dig, uden at du skal opgive din email-adresse";s:2:"de";s:119:"Fügt ein Formular hinzu, welches Besuchern erlaubt Emails zu schreiben, ohne die Kontakt Email-Adresse offen zu legen.";s:2:"el";s:273:"Προσθέτει μια φόρμα στον ιστότοπό σας που επιτρέπει σε επισκέπτες να σας στέλνουν μηνύμα μέσω email χωρίς να τους αποκαλύπτεται η διεύθυνση του email σας.";s:2:"fa";s:239:"فرم تماس را به سایت اضافه می کند تا مراجعین بتوانند بدون اینکه ایمیل شما را بدانند برای شما پیغام هایی را از طریق ایمیل ارسال نمایند.";s:2:"es";s:156:"Añade un formulario a tu sitio que permitirá a los visitantes enviarte correos electrónicos a ti sin darles tu dirección de correo directamente a ellos.";s:2:"fi";s:128:"Luo lomakkeen sivustollesi, josta kävijät voivat lähettää sähköpostia tietämättä vastaanottajan sähköpostiosoitetta.";s:2:"fr";s:122:"Ajoute un formulaire à votre site qui permet aux visiteurs de vous envoyer un e-mail sans révéler votre adresse e-mail.";s:2:"he";s:155:"מוסיף תופס יצירת קשר לאתר על מנת לא לחסוף כתובת דואר האלקטרוני של האתר למנועי פרסומות";s:2:"id";s:149:"Menambahkan formulir ke dalam situs Anda yang memungkinkan pengunjung untuk mengirimkan email kepada Anda tanpa memberikan alamat email kepada mereka";s:2:"it";s:119:"Aggiunge un modulo al tuo sito che permette ai visitatori di inviarti email senza mostrare loro il tuo indirizzo email.";s:2:"lt";s:124:"Prideda jūsų puslapyje formą leidžianti lankytojams siūsti jums el. laiškus neatskleidžiant jūsų el. pašto adreso.";s:2:"nl";s:125:"Voegt een formulier aan de site toe waarmee bezoekers een email kunnen sturen, zonder dat u ze een emailadres hoeft te tonen.";s:2:"pl";s:126:"Dodaje formularz kontaktowy do Twojej strony, który pozwala użytkownikom wysłanie maila za pomocą formularza kontaktowego.";s:2:"ru";s:234:"Добавляет форму обратной связи на сайт, через которую посетители могут отправлять вам письма, при этом адрес Email остаётся скрыт.";s:2:"sl";s:113:"Dodaj obrazec za kontakt da vam lahko obiskovalci pošljejo sporočilo brez da bi jim razkrili vaš email naslov.";s:2:"tw";s:147:"為您的網站新增「聯絡我們」的功能，對訪客是較為清楚便捷的聯絡方式，也無須您將電子郵件公開在網站上。";s:2:"cn";s:147:"为您的网站新增“联络我们”的功能，对访客是较为清楚便捷的联络方式，也无须您将电子邮件公开在网站上。";s:2:"th";s:316:"เพิ่มแบบฟอร์มในเว็บไซต์ของคุณ ช่วยให้ผู้เยี่ยมชมสามารถส่งอีเมลถึงคุณโดยไม่ต้องเปิดเผยที่อยู่อีเมลของพวกเขา";s:2:"hu";s:156:"Létrehozható vele olyan űrlap, amely lehetővé teszi a látogatók számára, hogy e-mailt küldjenek neked úgy, hogy nem feded fel az e-mail címedet.";s:2:"se";s:53:"Lägger till ett kontaktformulär till din webbplats.";}', 0, 0, 0, '0', 1, 1, 1, 1411677714),
 (8, 'a:8:{s:2:"en";s:7:"Domains";s:2:"el";s:7:"Domains";s:2:"fr";s:8:"Domaines";s:2:"se";s:8:"Domäner";s:2:"it";s:6:"Domini";s:2:"ar";s:27:"أسماء النطاقات";s:2:"tw";s:6:"網域";s:2:"cn";s:6:"网域";}', 'domains', '1.0.0', NULL, 'a:8:{s:2:"en";s:39:"Create domain aliases for your website.";s:2:"el";s:91:"Διαχειριστείτε συνώνυμα domain για τον ιστότοπό σας.";s:2:"fr";s:47:"Créer des alias de domaine pour votre site web";s:2:"se";s:36:"Skapa domänalias för din webbplats";s:2:"it";s:26:"Crea alias per il tuo sito";s:2:"ar";s:57:"أنشئ أسماء نطاقات بديلة لموقعك.";s:2:"tw";s:33:"為您的網站建立網域別名";s:2:"cn";s:33:"为您的网站建立网域别名";}', 0, 0, 1, 'structure', 1, 1, 1, 1411677714),
@@ -895,7 +916,7 @@ INSERT INTO `default_modules` (`id`, `name`, `slug`, `version`, `type`, `descrip
 (42, 'a:2:{s:2:"es";s:10:"Categorias";s:2:"en";s:10:"Categories";}', 'categories', '1.0', NULL, 'a:2:{s:2:"es";s:36:"Modulo de categorias y subcategorias";s:2:"en";s:35:"Categories and subcategories module";}', 0, 0, 1, 'content', 0, 0, 0, 1395070027),
 (43, 'a:2:{s:2:"es";s:9:"Etiquetas";s:2:"en";s:4:"Tags";}', 'tags', '1.0', NULL, 'a:2:{s:2:"es";s:16:"Modulo etiquetas";s:2:"en";s:11:"Tags module";}', 0, 1, 1, 'content', 0, 0, 0, 1395070028),
 (45, 'a:2:{s:2:"en";s:7:"Galeria";s:2:"es";s:7:"Galeria";}', 'galeria', '1.0', NULL, 'a:2:{s:2:"en";s:51:"Module galeria title and text © Jeyson Garcia 2013";s:2:"es";s:54:"Modulo de galeria titulo y texto © Jeyson Garcia 2013";}', 0, 1, 1, 'content', 1, 1, 0, 1395074494),
-(69, 'a:2:{s:2:"en";s:8:"Products";s:2:"es";s:9:"Productos";}', 'products', '1.0', NULL, 'a:2:{s:2:"en";s:26:"Products @BrayanAcebo 2014";s:2:"es";s:27:"Productos @BrayanAcebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1413762097),
+(69, 'a:2:{s:2:"en";s:8:"Products";s:2:"es";s:9:"Productos";}', 'products', '1.0', NULL, 'a:2:{s:2:"en";s:26:"Products @BrayanAcebo 2014";s:2:"es";s:27:"Productos @BrayanAcebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1414460236),
 (47, 'a:2:{s:2:"es";s:7:"Galeria";s:2:"en";s:7:"Gallery";}', 'gallery', '1.1', NULL, 'a:2:{s:2:"es";s:37:"Modulo Galeria Simple © Brayan Acebo";s:2:"en";s:37:"Module Simple Gallery © Brayan Acebo";}', 0, 1, 1, 'content', 1, 1, 0, 1411677714),
 (60, 'a:2:{s:2:"en";s:8:"services";s:2:"es";s:9:"servicios";}', 'services', '1.2', NULL, 'a:2:{s:2:"en";s:52:"services © Brayan Acebo, luis fernando salazar 2014";s:2:"es";s:53:"servicios © Brayan Acebo, luis fernando salazar 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1411677714),
 (55, 'a:2:{s:2:"es";s:21:"Otras configuraciones";s:2:"en";s:20:"Other configurations";}', 'others_conf', '1.2', NULL, 'a:2:{s:2:"es";s:58:"Otras configuraciones como el logo. @Luis Fernando Salazar";s:2:"en";s:52:"Other configuration like logo @Luis Fernando Salazar";}', 0, 1, 1, 'content', 1, 1, 0, 1411677714),
@@ -904,8 +925,8 @@ INSERT INTO `default_modules` (`id`, `name`, `slug`, `version`, `type`, `descrip
 (63, 'a:2:{s:2:"en";s:4:"Chat";s:2:"es";s:4:"Chat";}', 'chat', '1.0', NULL, 'a:2:{s:2:"en";s:30:"This is a PyroCMS module Chat.";s:2:"es";s:38:"Este es un módulo de Chat en PyroCMS.";}', 0, 1, 1, 'content', 1, 1, 0, 1411677714),
 (64, 'a:2:{s:2:"es";s:24:"Perfil del administrador";s:2:"en";s:21:"Administrator Profile";}', 'profile', '1.0', NULL, 'a:2:{s:2:"es";s:81:"@BrayanAcebo: Modulo basico para la configuración del perfil por parte del admin";s:2:"en";s:63:"@BrayanAcebo: Basic module for configuring the profile of admin";}', 0, 1, 1, 'content', 1, 1, 0, 1413422937),
 (65, 'a:2:{s:2:"es";s:14:"Sobre Nosotros";s:2:"en";s:8:"About Us";}', 'about', '2.0', NULL, 'a:2:{s:2:"es";s:28:"Sobre Nosotros @Brayan Acebo";s:2:"en";s:22:"About Us @Brayan Acebo";}', 0, 1, 1, 'content', 1, 1, 0, 1413422937),
-(66, 'a:2:{s:2:"en";s:6:"Albums";s:2:"es";s:7:"Albumes";}', 'albums', '1.2', NULL, 'a:2:{s:2:"en";s:26:"Albumes @Brayan Acebo 2014";s:2:"es";s:26:"Albumes @Brayan Acebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1413761871),
-(67, 'a:2:{s:2:"en";s:6:"Perfil";s:2:"es";s:6:"Perfil";}', 'perfil', '1.0', NULL, 'a:2:{s:2:"en";s:25:"Perfil @Brayan Acebo 2014";s:2:"es";s:25:"Perfil @Brayan Acebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1413761871);
+(66, 'a:2:{s:2:"en";s:6:"Albums";s:2:"es";s:7:"Albumes";}', 'albums', '1.2', NULL, 'a:2:{s:2:"en";s:26:"Albumes @Brayan Acebo 2014";s:2:"es";s:26:"Albumes @Brayan Acebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1414460236),
+(67, 'a:2:{s:2:"en";s:6:"Perfil";s:2:"es";s:6:"Perfil";}', 'perfil', '1.0', NULL, 'a:2:{s:2:"en";s:25:"Perfil @Brayan Acebo 2014";s:2:"es";s:25:"Perfil @Brayan Acebo 2014";}', 0, 1, 1, 'content', 1, 1, 0, 1414460236);
 
 -- --------------------------------------------------------
 
@@ -1191,7 +1212,7 @@ CREATE TABLE IF NOT EXISTS `default_perfil` (
 --
 
 INSERT INTO `default_perfil` (`id`, `video`, `updated_at`) VALUES
-(1, '//www.youtube.com/embed/niV3bHM3v44', '2014-10-19 22:32:05');
+(1, '//www.youtube.com/embed/KbM6QQfqx9w', '2014-10-30 03:01:48');
 
 -- --------------------------------------------------------
 
@@ -1210,15 +1231,16 @@ CREATE TABLE IF NOT EXISTS `default_perfil_chapters` (
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `default_perfil_chapters`
 --
 
 INSERT INTO `default_perfil_chapters` (`id`, `title`, `slug`, `date`, `country`, `video`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'titulo 1 asdfasfasfd', 'titulo-1-asdfasfasfd', '2014-10-21 00:00:00', 'Colombia', '//www.youtube.com/embed/4iJJCaSyoSw', '<p>sgljkdfglkjsbdfghskhjgsvfgds</p>', '2014-10-19 16:54:41', '2014-10-19 22:10:48'),
-(3, 'safd', 'safd', '2014-10-14 00:00:00', '', 'asfd', '<p>asdf</p>', '2014-10-19 17:23:43', '2014-10-19 22:23:43');
+(3, 'EL CAPO 3', 'el-capo-3', '2014-10-14 00:00:00', 'Colombia', '//www.youtube.com/embed/KbM6QQfqx9w', '<p><span  1.6em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;</span><a href="http://localhost/freelos/marthaisabelbolanos/"  1.6em;">ullamco laboris nisi</a><span  1.6em;"> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>', '2014-10-19 17:23:43', '2014-10-30 03:01:44'),
+(4, 'EL CAPO 3', 'el-capo-3', '2014-11-02 00:00:00', 'Colombia', '//www.youtube.com/embed/KbM6QQfqx9w', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;<a href="">ullamco laboris nisi</a> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '2014-11-02 11:37:48', '2014-11-02 16:40:11'),
+(5, 'EL CAPO 3', 'el-capo-3', '2014-11-03 00:00:00', 'Colombia', '//www.youtube.com/embed/KbM6QQfqx9w', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;<a href="">ullamco laboris nisi</a> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '2014-11-02 11:38:41', '2014-11-02 16:38:41');
 
 -- --------------------------------------------------------
 
@@ -1231,7 +1253,7 @@ CREATE TABLE IF NOT EXISTS `default_perfil_chapters_images` (
   `chapters_id` int(11) NOT NULL,
   `image` varchar(455) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
 
 --
 -- Volcado de datos para la tabla `default_perfil_chapters_images`
@@ -1239,7 +1261,22 @@ CREATE TABLE IF NOT EXISTS `default_perfil_chapters_images` (
 
 INSERT INTO `default_perfil_chapters_images` (`id`, `chapters_id`, `image`) VALUES
 (1, 1, 'uploads/default/perfil/ac248ce0375825164b6e59cba4695142.png'),
-(3, 3, 'uploads/default/perfil/fa4bbfe8a4b84d034c7f5084ce93999d.jpeg');
+(4, 3, 'uploads/default/perfil/c65da08ee8151abd346e0355db14044d.jpg'),
+(5, 3, 'uploads/default/perfil/10dfb65bd574e2b42c5a07a57985c209.jpg'),
+(6, 3, 'uploads/default/perfil/f129873731c37ceb3c62097afe58cbfb.jpg'),
+(7, 3, 'uploads/default/perfil/a912087be834de5a4e365b4034dd5645.jpg'),
+(8, 3, 'uploads/default/perfil/e6d365d5e99fc5ff44fa7263f1b5d822.jpg'),
+(9, 3, 'uploads/default/perfil/08528bf1ef855d3aeffd66041cff0499.jpg'),
+(10, 5, 'uploads/default/perfil/f6c85213be9e2865d0fbda50fc469a41.jpg'),
+(11, 5, 'uploads/default/perfil/1f6063f24508d0bae40e598c3d390cec.jpg'),
+(12, 5, 'uploads/default/perfil/9924b963513a8918786cf636057d4cd6.jpg'),
+(13, 5, 'uploads/default/perfil/3f4dc13a08a6bd6682807b94412c63c7.jpg'),
+(14, 3, 'uploads/default/perfil/cc10586b7942e4f1e61ce930ab0bc714.jpg'),
+(15, 4, 'uploads/default/perfil/9479a6b87c926e3caef0d104f70b7348.jpg'),
+(16, 4, 'uploads/default/perfil/2b57a9bba87a15ff7628b0442646899f.jpg'),
+(17, 4, 'uploads/default/perfil/48d48d693ae0d73f53128231ef8a2a39.jpg'),
+(18, 4, 'uploads/default/perfil/9fefcc5ebb0abb8121be838c0cb089a5.jpg'),
+(19, 4, 'uploads/default/perfil/d4376b9317956cc4e1943a1faeaa7dcd.jpg');
 
 -- --------------------------------------------------------
 
@@ -1254,18 +1291,18 @@ CREATE TABLE IF NOT EXISTS `default_permissions` (
   `roles` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `default_permissions`
 --
 
 INSERT INTO `default_permissions` (`id`, `group_id`, `module`, `roles`) VALUES
-(7, 3, 'albums', NULL),
-(8, 3, 'blog', NULL),
-(9, 3, 'comments', NULL),
-(10, 3, 'perfil', NULL),
-(11, 3, 'products', NULL);
+(12, 3, 'albums', NULL),
+(13, 3, 'blog', '{"put_live":"1","edit_live":"1","delete_live":"1"}'),
+(14, 3, 'comments', NULL),
+(15, 3, 'perfil', NULL),
+(16, 3, 'products', NULL);
 
 -- --------------------------------------------------------
 
@@ -1396,7 +1433,7 @@ CREATE TABLE IF NOT EXISTS `default_search_index` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique` (`module`,`entry_key`,`entry_id`(190)),
   FULLTEXT KEY `full search` (`title`,`description`,`keywords`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=46 ;
 
 --
 -- Volcado de datos para la tabla `default_search_index`
@@ -1408,8 +1445,12 @@ INSERT INTO `default_search_index` (`id`, `title`, `description`, `keywords`, `k
 (3, 'Search', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '3', 'search', 'admin/pages/edit/3', 'admin/pages/delete/3'),
 (4, 'Results', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '4', 'search/results', 'admin/pages/edit/4', 'admin/pages/delete/4'),
 (5, 'Page missing', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '5', '404', 'admin/pages/edit/5', 'admin/pages/delete/5'),
-(9, 'sadf', 'afdsadf', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '2', 'blog/2014/10/asdf', 'admin/blog/edit/2', 'admin/blog/delete/2'),
-(23, 'hola mundo 9876sdf', 'el propio contenido', 'asdasd, intro', '90df8116b91a1203cde3845a64d7b494', 'blog', 'blog:post', 'blog:posts', '7', 'blog/2014/10/hola-mundo-9876sdf', 'admin/blog/edit/7', 'admin/blog/delete/7');
+(39, 'LOREM IPSUM DOLOR SIT AMET BEATAE VITAE DICTA SUNT', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;sed quia non numquam eius modi tempora inciduntz&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '16', 'blog/2014/11/lorem-ipsum-dolor-sit-amet-beatae-vitae-dicta-sunt', 'admin/blog/edit/16', 'admin/blog/delete/16'),
+(40, 'LOREM IPSUM DOLOR SIT AMET', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation&nbsp;ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;sed quia non numquam eius modi tempora inciduntz&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '17', 'blog/2014/11/lorem-ipsum-dolor-sit-amet', 'admin/blog/edit/17', 'admin/blog/delete/17'),
+(41, 'litia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distincti', 'tatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;sed quia non numquam eius modi tempora inciduntz&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reic', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '18', 'blog/2014/11/litia-animi-id-est-laborum-et-dolorum-fuga-et-harum-quidem-rerum-facilis-est-et-expedita-distincti', 'admin/blog/edit/18', 'admin/blog/delete/18'),
+(42, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan', 'piciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '19', 'blog/2014/11/sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudan', 'admin/blog/edit/19', 'admin/blog/delete/19'),
+(43, 'erspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam re', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;sed quia non numquam eius modi tempora inciduntz&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole', NULL, NULL, 'blog', 'blog:post', 'blog:posts', '20', 'blog/2014/11/erspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-re', 'admin/blog/edit/20', 'admin/blog/delete/20'),
+(45, 'Sed ut perspiciatis', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,&nbsp;sed quia non numquam eius modi tempora inciduntz&nbsp;ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n\nAt vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et mole', 'lorem ipsum', 'a6c7beb3497554e0f4f2e9a2107c52f8', 'blog', 'blog:post', 'blog:posts', '21', 'blog/2014/11/sed-ut-perspiciatis', 'admin/blog/edit/21', 'admin/blog/delete/21');
 
 -- --------------------------------------------------------
 
@@ -1569,8 +1610,8 @@ CREATE TABLE IF NOT EXISTS `default_users` (
 --
 
 INSERT INTO `default_users` (`id`, `email`, `password`, `salt`, `group_id`, `ip_address`, `active`, `activation_code`, `created_on`, `last_login`, `username`, `forgotten_password_code`, `remember_code`) VALUES
-(1, 'brayanacebo@gmail.com', '315da6f6681956ff075828067443f86d69216da3', '02dcb', 1, '', 1, '', 1394062758, 1413766190, 'brayanacebo', NULL, '4f905ccd67b10e497807ddffe05dfd397e64770e'),
-(2, 'oscar.david.florez@gmail.com', 'bffe92335612fe598f91bdfd63fba0a91182b213', '6808be', 3, '::1', 1, NULL, 1413765797, 1413766692, 'oscar.florez', NULL, NULL);
+(1, 'brayanacebo@gmail.com', '315da6f6681956ff075828067443f86d69216da3', '02dcb', 1, '', 1, '', 1394062758, 1414943641, 'brayanacebo', NULL, '4f905ccd67b10e497807ddffe05dfd397e64770e'),
+(2, 'oscar.david.florez@gmail.com', 'bffe92335612fe598f91bdfd63fba0a91182b213', '6808be', 3, '::1', 1, NULL, 1413765797, 1414943651, 'oscar.florez', NULL, NULL);
 
 -- --------------------------------------------------------
 

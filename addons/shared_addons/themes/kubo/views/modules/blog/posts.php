@@ -16,7 +16,7 @@
 			<div class="row blog-item">
 				<div class="col-md-12">
 					<div class="blog-item-titulo">
-						<a href="blog-detalle.html">{{ title }}</a>
+						<a href="{{ url }}">{{ title }}</a>
 					</div>
 				</div>
 				{{ if image }}
