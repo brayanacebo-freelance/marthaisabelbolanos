@@ -47,8 +47,16 @@ class Perfil extends Public_Controller {
     public function biografia()
     {
 
-        $this->template
-        ->build('biografia');
+        $this->template->build('biografia');
+
+    }
+
+    // -----------------------------------------------------------------
+
+    public function home()
+    {
+
+        $this->template->build('home');
 
     }
 
