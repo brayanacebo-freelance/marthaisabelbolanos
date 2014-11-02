@@ -58,6 +58,7 @@ $route['edit-profile']	                    = 'users/edit';
 $route['fotografias']	                    = 'albums';
 $route['biografia']	                        = 'perfil/biografia';
 $route['home']	                        = 'perfil/home';
+$route['tienda']	                        = 'products';
 
 $route['sitemap.xml']                       = 'sitemap/xml';
 

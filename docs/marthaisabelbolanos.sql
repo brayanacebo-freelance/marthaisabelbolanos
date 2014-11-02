@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-11-2014 a las 18:13:56
+-- Tiempo de generación: 02-11-2014 a las 20:53:45
 -- Versión del servidor: 5.6.14
 -- Versión de PHP: 5.5.6
 
@@ -161,8 +161,8 @@ CREATE TABLE IF NOT EXISTS `default_albums` (
 --
 
 INSERT INTO `default_albums` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(2, 'hola mundo 123', 'hola-mundo-123', '2014-10-19 15:05:40', '2014-10-19 20:05:40'),
-(4, 'hay lo que fu fue', 'hay-lo-que-fu-fue', '2014-10-19 15:10:06', '2014-10-19 20:10:25');
+(2, 'BOOK 2014', 'book-2014', '2014-10-19 15:05:40', '2014-11-02 19:04:16'),
+(4, 'DESAFÍO MARRUECOS', 'desafio-marruecos', '2014-10-19 15:10:06', '2014-11-02 19:03:58');
 
 -- --------------------------------------------------------
 
@@ -176,20 +176,26 @@ CREATE TABLE IF NOT EXISTS `default_album_images` (
   `path` varchar(455) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `default_album_images`
 --
 
 INSERT INTO `default_album_images` (`id`, `album_id`, `path`, `created_at`) VALUES
-(2, 4, 'uploads/default/albums/bbb1a73dc65b7861e720f5de4c890503.png', '2014-10-19 20:28:36'),
 (3, 2, 'uploads/default/albums/4d7c077b2324869bcfd7d3b7e73ae762.jpg', '2014-10-30 02:40:21'),
 (4, 2, 'uploads/default/albums/9f1c357f9a8fe2aea08a906d597d2b4b.jpg', '2014-10-30 02:40:28'),
 (5, 2, 'uploads/default/albums/1bba03f9e537799a9f6d2e33433f2f1a.jpg', '2014-10-30 02:40:34'),
 (6, 2, 'uploads/default/albums/bf9ad6773451c19c7551f739ff31db4b.jpg', '2014-10-30 02:40:40'),
 (7, 2, 'uploads/default/albums/45b26298f68dad96a8f844b27c5be7ef.jpg', '2014-10-30 02:40:48'),
-(8, 2, 'uploads/default/albums/a3a9ecd3893567cad77756cfc61172c3.jpg', '2014-10-30 02:40:59');
+(8, 2, 'uploads/default/albums/a3a9ecd3893567cad77756cfc61172c3.jpg', '2014-10-30 02:40:59'),
+(9, 4, 'uploads/default/albums/9facc244e1f398e6f0aa2eeecdaa30d8.jpg', '2014-11-02 19:06:10'),
+(10, 4, 'uploads/default/albums/d8cae66005bc4237d0ec22dc35fb2e74.jpg', '2014-11-02 19:06:19'),
+(11, 4, 'uploads/default/albums/a284aecaecec74bce73297a161218bf9.jpg', '2014-11-02 19:06:25'),
+(12, 4, 'uploads/default/albums/9f30e7e194e7db55407f8f34d0e9026e.jpg', '2014-11-02 19:06:31'),
+(13, 4, 'uploads/default/albums/9b411a175ebae5a4410eccc585d544ba.jpg', '2014-11-02 19:06:37'),
+(14, 4, 'uploads/default/albums/18e57d3d55f2f66705deefd9610c0520.jpg', '2014-11-02 19:06:42'),
+(15, 4, 'uploads/default/albums/e51641afb883ebcaff4a1adf2b8158e2.jpg', '2014-11-02 19:06:52');
 
 -- --------------------------------------------------------
 
@@ -277,31 +283,6 @@ CREATE TABLE IF NOT EXISTS `default_chat` (
 
 INSERT INTO `default_chat` (`id`, `session_id`, `created_at`) VALUES
 (1, 'chat0636748f767855740db1509867c9943c', '2014-09-18 18:34:11');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `default_chat_comments`
---
-
-CREATE TABLE IF NOT EXISTS `default_chat_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chat_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
-  `show` int(11) NOT NULL DEFAULT '0',
-  `comment` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
---
--- Volcado de datos para la tabla `default_chat_comments`
---
-
-INSERT INTO `default_chat_comments` (`id`, `chat_id`, `type`, `show`, `comment`, `created_at`) VALUES
-(1, 1, 2, 1, 'hola', '2014-09-18 18:34:11'),
-(2, 1, 2, 1, 'alamelop xavi', '2014-09-18 18:34:31'),
-(3, 1, 1, 1, 'hola', '2014-09-18 18:38:09');
 
 -- --------------------------------------------------------
 
@@ -407,7 +388,7 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('25d57563c4301708e553f6442eaea2ae', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414457680, 'a:6:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
 ('d445b79cab7e3b055bda0a4217504c00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36', 1414470124, 'a:7:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";s:18:"flash:old:referrer";s:31:"blog/2014/10/hola-mundo-9876sdf";}'),
 ('05100f58112146f873bee79767373f9a', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1414657416, 'a:6:{s:8:"username";s:11:"brayanacebo";s:5:"email";s:21:"brayanacebo@gmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
-('c06c211b874a5ffd1f2ba43a2a4264e0', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1414944801, 'a:7:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";s:18:"flash:old:referrer";s:105:"blog/2014/11/sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudan";}');
+('f6c64cd1dbd6763ed3b87fe33c0ef43b', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1414975011, 'a:6:{s:8:"username";s:12:"oscar.florez";s:5:"email";s:28:"oscar.david.florez@gmail.com";s:2:"id";s:1:"2";s:7:"user_id";s:1:"2";s:8:"group_id";s:1:"3";s:5:"group";s:7:"cliente";}');
 
 -- --------------------------------------------------------
 
@@ -434,14 +415,15 @@ CREATE TABLE IF NOT EXISTS `default_comments` (
   `created_on` int(11) NOT NULL DEFAULT '0',
   `ip_address` varchar(45) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `default_comments`
 --
 
 INSERT INTO `default_comments` (`id`, `is_active`, `user_id`, `user_name`, `user_email`, `user_website`, `comment`, `parsed`, `module`, `entry_id`, `entry_title`, `entry_key`, `entry_plural`, `uri`, `cp_uri`, `created_on`, `ip_address`) VALUES
-(1, 1, 1, 'brayan', 'bra@asd.co', '', 'asdfsadfasdfasdf', '', 'blog', '1', 'afds', 'sdf', '', NULL, NULL, 0, '');
+(9, 1, 2, '', '', '', 'ritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit', '<p>ritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit</p>\n', 'blog', '21', 'Sed ut perspiciatis', 'blog:post', 'blog:posts', 'blog/2014/11/sed-ut-perspiciatis', NULL, 1414950246, '::1'),
+(10, 1, 2, '', '', '', 'hola mundo', '<p>hola mundo</p>\n', 'blog', '21', 'Sed ut perspiciatis', 'blog:post', 'blog:posts', 'blog/2014/11/sed-ut-perspiciatis', NULL, 1414950520, '::1');
 
 -- --------------------------------------------------------
 
@@ -454,7 +436,14 @@ CREATE TABLE IF NOT EXISTS `default_comment_blacklists` (
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `email` varchar(150) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `default_comment_blacklists`
+--
+
+INSERT INTO `default_comment_blacklists` (`id`, `website`, `email`) VALUES
+(1, '', 'oscar.david.florez@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -1329,8 +1318,8 @@ CREATE TABLE IF NOT EXISTS `default_products` (
 --
 
 INSERT INTO `default_products` (`id`, `name`, `slug`, `introduction`, `description`, `image`, `video`, `outstanding`, `created_at`, `updated_at`) VALUES
-(1, 'uno', 'uno', 'intro 1', '<p>desc</p>', 'uploads/default/products/38e295eb5e215d0efdb4ca07b6121793.png', '//www.youtube.com/embed/CW56soql2N0', 1, '2014-10-19 18:57:24', '2014-10-20 02:03:45'),
-(3, 'asdf9876as98d7f uyafgsd768f', 'asdf9876as98d7f-uyafgsd768f', 'asfd', '<p>asdf</p>', 'uploads/default/products/ed0019da7ad9d2b64dbfee4dae36d465.jpeg', '//www.youtube.com/embed/CW56soql2N0', 1, '2014-10-19 20:44:47', '2014-10-20 02:03:32');
+(1, 'GEL REAFIRMANTE DE MARTHA BOLAÑOS', 'gel-reafirmante-de-martha-bolanos', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>', 'uploads/default/products/377f7016a753102c87d074afbba5fbd4.jpg', '//www.youtube.com/embed/KbM6QQfqx9w', 1, '2014-10-19 18:57:24', '2014-11-02 19:39:21'),
+(3, 'GEL REDUCTOR DE MARTHA BOLAÑOS', 'gel-reductor-de-martha-bolanos', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>', 'uploads/default/products/5ecd66bf4f5d8647d9dd39bf3a5fef70.jpg', '//www.youtube.com/embed/KbM6QQfqx9w', 1, '2014-10-19 20:44:47', '2014-11-02 19:39:15');
 
 -- --------------------------------------------------------
 
@@ -1489,7 +1478,7 @@ INSERT INTO `default_settings` (`slug`, `title`, `description`, `type`, `default
 ('api_user_keys', 'API User Keys', 'Allow users to sign up for API keys (if the API is Enabled).', 'select', '0', '0', '0=Disabled|1=Enabled', 0, 0, 'api', 0),
 ('auto_username', 'Auto Username', 'Create the username automatically, meaning users can skip making one on registration.', 'radio', '1', '', '1=Enabled|0=Disabled', 0, 1, 'users', 964),
 ('cdn_domain', 'CDN Domain', 'CDN domains allow you to offload static content to various edge servers, like Amazon CloudFront or MaxCDN.', 'text', '', '', '', 0, 1, 'integration', 1000),
-('ckeditor_config', 'CKEditor Config', 'You can find a list of valid configuration items in <a target="_blank" href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html">CKEditor''s documentation.</a>', 'textarea', '', '', '', 1, 1, 'wysiwyg', 993),
+('ckeditor_config', 'CKEditor Config', 'You can find a list of valid configuration items in <a target="_blank" href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html">CKEditor''s documentation.</a>', 'textarea', '', '{{# this is a wysiwyg-simple editor customized for the blog module (it allows images to be inserted) #}}\n$(''textarea#intro.wysiwyg-simple'').ckeditor({\n	toolbar: [\n		[''pyroimages''],\n		[''Bold'', ''Italic'', ''-'', ''NumberedList'', ''BulletedList'', ''-'', ''Link'', ''Unlink'']\n	  ],\n	extraPlugins: ''pyroimages'',\n	width: ''99%'',\n	height: 100,\n	dialog_backgroundCoverColor: ''#000'',\n	defaultLanguage: ''{{ helper:config item="default_language" }}'',\n	language: ''{{ global:current_language }}''\n});\n\n{{# this is the config for all wysiwyg-simple textareas #}}\n$(''textarea.wysiwyg-simple'').ckeditor({\n	toolbar: [\n		[''Bold'', ''Italic'', ''-'', ''NumberedList'', ''BulletedList'', ''-'', ''Link'', ''Unlink'']\n	  ],\n	width: ''99%'',\n	height: 100,\n	dialog_backgroundCoverColor: ''#000'',\n	defaultLanguage: ''{{ helper:config item="default_language" }}'',\n	language: ''{{ global:current_language }}''\n});\n\n{{# and this is the advanced editor #}}\n$(''textarea.wysiwyg-advanced'').ckeditor({\n	toolbar: [\n		[''Maximize''],\n		[''pyroimages'', ''pyrofiles''],\n		[''Cut'',''Copy'',''Paste'',''PasteFromWord''],\n		[''Undo'',''Redo'',''-'',''Find'',''Replace''],\n		[''Link'',''Unlink''],\n		[''Table'',''HorizontalRule'',''SpecialChar''],\n		[''Bold'',''Italic'',''StrikeThrough''],\n		[''JustifyLeft'',''JustifyCenter'',''JustifyRight'',''JustifyBlock'',''-'',''BidiLtr'',''BidiRtl''],\n		[''Format'', ''FontSize'', ''Subscript'',''Superscript'', ''NumberedList'',''BulletedList'',''Outdent'',''Indent'',''Blockquote''],\n		[''ShowBlocks'', ''RemoveFormat'', ''Source'']\n	],\n	extraPlugins: ''pyroimages,pyrofiles'',\n	width: ''99%'',\n	height: 400,\n	dialog_backgroundCoverColor: ''#000'',\n	removePlugins: ''elementspath'',\n	defaultLanguage: ''{{ helper:config item="default_language" }}'',\n	language: ''{{ global:current_language }}''\n});', '', 1, 1, 'wysiwyg', 993),
 ('comment_markdown', 'Allow Markdown', 'Do you want to allow visitors to post comments using Markdown?', 'select', '0', '0', '0=Text Only|1=Allow Markdown', 1, 1, 'comments', 965),
 ('comment_order', 'Comment Order', 'Sort order in which to display comments.', 'select', 'ASC', 'ASC', 'ASC=Oldest First|DESC=Newest First', 1, 1, 'comments', 966),
 ('contact_email', 'Contact E-mail', 'All e-mails from users, guests and the site will go to this e-mail address.', 'text', 'brayan.acebo@imaginamos.co', 'luis.salazar@imagina.co', '', 1, 1, 'email', 979),
@@ -1523,7 +1512,7 @@ INSERT INTO `default_settings` (`slug`, `title`, `description`, `type`, `default
 ('mail_smtp_port', 'SMTP Port', 'SMTP port number.', 'text', '', '25', '', 0, 1, 'email', 974),
 ('mail_smtp_user', 'SMTP User Name', 'SMTP user name.', 'text', '', 'info@fastproject.co', '', 0, 1, 'email', 973),
 ('meta_topic', 'Meta Topic', 'Two or three words describing this type of company/website.', 'text', 'Content Management', '', '', 0, 1, '', 998),
-('moderate_comments', 'Moderate Comments', 'Force comments to be approved before they appear on the site.', 'radio', '1', '1', '1=Enabled|0=Disabled', 1, 1, 'comments', 967),
+('moderate_comments', 'Moderate Comments', 'Force comments to be approved before they appear on the site.', 'radio', '1', '0', '1=Enabled|0=Disabled', 1, 1, 'comments', 967),
 ('profile_visibility', 'Profile Visibility', 'Specify who can view user profiles on the public site', 'select', 'public', '', 'public=profile_public|owner=profile_owner|hidden=profile_hidden|member=profile_member', 0, 1, 'users', 960),
 ('records_per_page', 'Records Per Page', 'How many records should we show per page in the admin section?', 'select', '25', '', '10=10|25=25|50=50|100=100', 1, 1, '', 992),
 ('registered_email', 'User Registered Email', 'Send a notification email to the contact e-mail when someone registers.', 'radio', '1', '', '1=Enabled|0=Disabled', 0, 1, 'users', 962),
@@ -1610,8 +1599,8 @@ CREATE TABLE IF NOT EXISTS `default_users` (
 --
 
 INSERT INTO `default_users` (`id`, `email`, `password`, `salt`, `group_id`, `ip_address`, `active`, `activation_code`, `created_on`, `last_login`, `username`, `forgotten_password_code`, `remember_code`) VALUES
-(1, 'brayanacebo@gmail.com', '315da6f6681956ff075828067443f86d69216da3', '02dcb', 1, '', 1, '', 1394062758, 1414943641, 'brayanacebo', NULL, '4f905ccd67b10e497807ddffe05dfd397e64770e'),
-(2, 'oscar.david.florez@gmail.com', 'bffe92335612fe598f91bdfd63fba0a91182b213', '6808be', 3, '::1', 1, NULL, 1413765797, 1414943651, 'oscar.florez', NULL, NULL);
+(1, 'brayanacebo@gmail.com', '315da6f6681956ff075828067443f86d69216da3', '02dcb', 1, '', 1, '', 1394062758, 1414947919, 'brayanacebo', NULL, '4f905ccd67b10e497807ddffe05dfd397e64770e'),
+(2, 'oscar.david.florez@gmail.com', 'bffe92335612fe598f91bdfd63fba0a91182b213', '6808be', 3, '::1', 1, NULL, 1413765797, 1414947989, 'oscar.florez', NULL, NULL);
 
 -- --------------------------------------------------------
 
