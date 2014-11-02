@@ -10,8 +10,10 @@
 	<iframe width="100%" height="750" src="<?php echo $perfil->video ?>" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<?php $cont=0; ?>
 <?php foreach ($chapters as $item): ?>
-<div class="container-fluid">
+	<?php $cont++; ?>
+<div class="container-fluid <?php echo (($cont/2) == 1) ? 'perfil2' : null?>">
 	<div class="container perfil">
 		<div class="row">
 		  <div class="col-xs-12 col-md-12">
