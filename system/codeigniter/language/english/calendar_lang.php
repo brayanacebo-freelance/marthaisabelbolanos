@@ -68,7 +68,7 @@ $lang['cal_july']		= 'July';
 $lang['cal_august']		= 'August';
 $lang['cal_september']	= 'September';
 $lang['cal_october']	= 'October';
-$lang['cal_november']	= 'November';
+$lang['cal_november']	= 'Noviembre';
 $lang['cal_december']	= 'December';
 
 /* End of file calendar_lang.php */

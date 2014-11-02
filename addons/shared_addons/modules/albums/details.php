@@ -12,7 +12,7 @@ class Module_albums extends Module {
         return array(
             'name' => array(
                 'en' => 'Albums',
-                'es' => 'Albumes'
+                'es' => 'Fotografías'
             ),
             'description' => array(
                 'en' => 'Albumes @Brayan Acebo 2014',
