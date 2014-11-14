@@ -21,9 +21,13 @@
 		  		<div class="col-xs-12 col-md-12">
 		  			<div class="owl-demo">
 		  				<?php $pistures = get_pictures($item->id); ?>
-		  			<?php foreach ($pistures as $picture): ?>
-					  	<img src="<?php echo $picture->path ?>" alt="<?php echo $item->slug ?>">
-					<?php endforeach; ?>
+			  			<?php foreach ($pistures as $picture): ?>
+			  				<div class="item">
+			  					<a href="<?php echo $picture->path ?>" data-lightbox="<?php $item->id ?>" data-title="<?php echo $item->slug ?>">
+			  						<img src="<?php echo $picture->path ?>" alt="<?php echo $item->slug ?>">
+			  					</a>
+			  				</div>
+						<?php endforeach; ?>
 					</div>
 		  		</div>
 		  	</div>
@@ -36,8 +40,10 @@
 
 {{ theme:css file="owl.carousel.css" }}
 {{ theme:css file="owl.theme.css" }}
+{{ theme:css file="lightbox.css" }}
 {{ theme:js file="bootstrap.min.js" }}
 {{ theme:js file="owl.carousel.js" }}
+{{ theme:js file="lightbox.js" }}
 <script>
 $(document).ready(function() {
   $(".owl-demo").owlCarousel({

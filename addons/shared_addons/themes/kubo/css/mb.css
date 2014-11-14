@@ -701,4 +701,27 @@ body {
   font-size: 20px;
   padding: 20px 50px;
   padding: 0.75rem 2.5rem;
+  margin-bottom: 20px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.large-button:hover {
+  background: #f3efe7;
+  color: #dd3570;
+  text-decoration: underline;
+}
+.tienda-op-titulo {
+  font-size: 38px;
+  text-transform: uppercase;
+  margin: 50px 0px 0px 0px;
+}
+.tienda-op-nombre {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0px 10px 0px;
+}
+.tienda-op-texto {
+  margin: 0px 0px 20px 0px;
 }

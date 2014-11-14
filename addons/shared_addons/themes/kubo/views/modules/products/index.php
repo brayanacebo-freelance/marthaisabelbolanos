@@ -23,3 +23,70 @@
 	</div>
 	<?php endforeach; ?>
 </div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+  			<div class="tienda-op-titulo">
+	  			OTROS PRODUCTOS
+	  		</div>
+	  		<div class="perfil-item-fecha">Martha Bolaños</div>
+  		</div>
+  		<div class="col-md-4">
+  			<div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil01.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil02.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil03.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil04.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil05.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil06.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="item">
+		  	<a href="tienda-detalle.html"><img src="../img/perfil07.jpg" alt=""></a>
+		  	<h2 class="tienda-op-nombre">Nombre del producto</h2>
+		  	<div class="tienda-op-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+		  	<a href="tienda-detalle.html" class="large-button">COMPRAR</a>
+		  </div>
+		</div>
+	</div>
+</div>
