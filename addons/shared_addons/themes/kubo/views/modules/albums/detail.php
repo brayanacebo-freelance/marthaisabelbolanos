@@ -1,8 +1,8 @@
 <div class="titulo-interna">
-	<div class="titulo-interna-texto">MIS FOTOGRAFÍAS</div>
+	<h1 class="titulo-interna-texto">DESAFÍO MARRUECOS</h1>
 	<ol class="breadcrumb">
 	  <li><a href="index.html">Inicio</a></li>
-	  <li class="active"><span class="label label-default">Fotografías</span></li>
+	  <li class="active"><span class="label label-default">Desafío Marruecos</span></li>
 	</ol>
 </div>
 
@@ -13,9 +13,9 @@
 		  	<?php foreach ($albums as $item): ?>
 		  	<div class="row perfil-item">
 		  		<div class="col-md-12">
-		  			<h2 class="perfil-item-titulo">
+		  			<div class="perfil-item-titulo">
 			  			<?php echo $item->name ?>
-			  		</h2>
+			  		</div>
 			  		<div class="perfil-item-fecha"><?php echo fecha_spanish_full($item->updated_at) ?></div>
 		  		</div>
 		  		<div class="col-xs-12 col-md-12">
@@ -29,7 +29,6 @@
 			  				</div>
 						<?php endforeach; ?>
 					</div>
-					<p><a href="" class="home-boton">Leer más</a></p>
 		  		</div>
 		  	</div>
 		  <?php endforeach; ?>

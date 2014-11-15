@@ -38,6 +38,7 @@
 					  <div class="item"><img src="<?php echo $image->image ?>" alt="<?php echo $item->slug ?>"></div>
 					<?php endforeach; ?>					 
 					</div>
+					<p><a href="" class="home-boton">Leer más</a></p>
 		  		</div>
 		  	</div>
 		  	
