@@ -60,6 +60,7 @@ $route['fotografias/detalle/([a-zA-Z0-9_-]+)']	                    = 'albums/det
 $route['biografia']	                        = 'perfil/biografia';
 $route['home']	                        = 'perfil/home';
 $route['tienda']	                        = 'products';
+$route['perfil/detalle/([a-zA-Z0-9_-]+)']	= 'perfil/detail/$1';
 
 $route['sitemap.xml']                       = 'sitemap/xml';
 

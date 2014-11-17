@@ -1,39 +1,37 @@
 <div class="titulo-interna">
-	<h1 class="titulo-interna-texto"><?php echo ucwords($album->name) ?></h1>
+	<h1 class="titulo-interna-texto"><?php echo ucwords($perfil->title) ?></h1>
 	<ol class="breadcrumb">
 	  <li><a href="<?php echo site_url() ?>">Inicio</a></li>
-	  <li><a href="<?php echo site_url('fotografias') ?>">Fotografías</a></li>
-	  <li class="active"><span class="label label-default"><?php echo $album->name ?></span></li>
+	  <li><a href="<?php echo site_url('perfil') ?>">Perfil</a></li>
+	  <li class="active"><span class="label label-default"><?php echo $perfil->title ?></span></li>
 	</ol>
 </div>
+
+
+<div class="perfil-vp">
+	<iframe width="100%" height="750" src="<?php echo $perfil->video ?>" frameborder="0" allowfullscreen></iframe>
+</div>
+<small><?php echo fecha_spanish_full($perfil->date) ?>. <?php echo $perfil->country ?></small>
+<p><?php echo $perfil->description ?></p>
 
 <div class="container-fluid">
 	<div class="container perfil">
 		<div class="row">
 		  <div class="col-xs-12 col-md-12">
-		  	<?php foreach ($albums as $item): ?>
+		  	
 		  	<div class="row perfil-item">
-		  		<div class="col-md-12">
-		  			<div class="perfil-item-titulo">
-			  			<?php echo $item->name ?>
-			  		</div>
-			  		<div class="perfil-item-fecha"><?php echo fecha_spanish_full($item->updated_at) ?></div>
-		  		</div>
+		  		
 		  		<div class="col-xs-12 col-md-12">
 		  			<div class="owl-demo">
-		  				<?php $pistures = get_pictures($item->id); ?>
-			  			<?php foreach ($pistures as $picture): ?>
+		  				<?php $images = get_images($perfil->id); ?>
+			  			<?php foreach ($images as $image): ?>
 			  				<div class="item">
-			  					<a href="<?php echo $picture->path ?>" data-lightbox="<?php $item->id ?>" data-title="<?php echo $item->slug ?>">
-			  						<img src="<?php echo $picture->path ?>" alt="<?php echo $item->slug ?>">
-			  					</a>
+			  						<img src="<?php echo $image->image ?>" alt="<?php echo $perfil->slug ?>">
 			  				</div>
 						<?php endforeach; ?>
 					</div>
 		  		</div>
-		  	</div>
-		  <?php endforeach; ?>
-		  	
+		  	</div>		  	
 		  </div>
 		</div>
 	</div>
