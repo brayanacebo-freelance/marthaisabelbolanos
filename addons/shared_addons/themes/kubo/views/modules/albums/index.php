@@ -29,7 +29,7 @@
 			  				</div>
 						<?php endforeach; ?>
 					</div>
-					<p><a href="" class="home-boton">Leer más</a></p>
+					<p><a href="<?php echo site_url('fotografias/detalle/'.$item->slug) ?>" class="home-boton">Leer más</a></p>
 		  		</div>
 		  	</div>
 		  <?php endforeach; ?>

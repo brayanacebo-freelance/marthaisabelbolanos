@@ -56,6 +56,7 @@ $route['my-profile']	                    = 'users/index';
 $route['edit-profile']	                    = 'users/edit';
 
 $route['fotografias']	                    = 'albums';
+$route['fotografias/detalle/([a-zA-Z0-9_-]+)']	                    = 'albums/detail/$1';
 $route['biografia']	                        = 'perfil/biografia';
 $route['home']	                        = 'perfil/home';
 $route['tienda']	                        = 'products';

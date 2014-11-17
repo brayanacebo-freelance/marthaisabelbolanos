@@ -33,5 +33,18 @@ class albums extends Public_Controller {
 	        ->build('index');
     }
 
+    // -----------------------------------------------------------------
+
+    public function detail($slug)
+    {
+        $album = $this->album_model->where('slug', $slug)->limit(1)->get_all();
+        $albums = $this->album_model->where('slug', $slug)->get_all();
+
+        $this->template
+            ->set('album', $album[0])
+            ->set('albums', $albums)
+            ->build('detail');
+    }
+
 
 }

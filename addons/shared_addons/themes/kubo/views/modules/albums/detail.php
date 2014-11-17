@@ -1,8 +1,9 @@
 <div class="titulo-interna">
 	<h1 class="titulo-interna-texto">DESAFÍO MARRUECOS</h1>
 	<ol class="breadcrumb">
-	  <li><a href="index.html">Inicio</a></li>
-	  <li class="active"><span class="label label-default">Desafío Marruecos</span></li>
+	  <li><a href="<?php echo site_url() ?>">Inicio</a></li>
+	  <li><a href="<?php echo site_url('fotografias') ?>">Fotografías</a></li>
+	  <li class="active"><span class="label label-default"><?php echo $album->name ?></span></li>
 	</ol>
 </div>
 
