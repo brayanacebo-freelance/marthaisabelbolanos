@@ -1,7 +1,7 @@
 <div class="titulo-interna">
 	<div class="titulo-interna-texto">MIS FOTOGRAFÍAS</div>
 	<ol class="breadcrumb">
-	  <li><a href="index.html">Inicio</a></li>
+	  <li><a href="<?php echo site_url() ?>">Inicio</a></li>
 	  <li class="active"><span class="label label-default">Fotografías</span></li>
 	</ol>
 </div>

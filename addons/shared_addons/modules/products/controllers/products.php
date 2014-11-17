@@ -26,20 +26,19 @@ class Products extends Public_Controller {
 
     public function index()
     {
-    	// Paginación de Productos
-        $pagination = create_pagination('products/index', $this->db->count_all('products'), 10);
-
         // Se consultan los productos
-        $products = $this->db
-        ->order_by('id', 'DESC')
-        ->limit($pagination['limit'], $pagination['offset'])
-        ->get('products')
-		->result();
+        $products = $this->db->order_by('id', 'DESC')
+                            ->get('products')
+                    		->result();
+
+        $featured = $this->db->where('outstanding', 1)
+                            ->get('products')
+                            ->result();
 
         $this->template
-        ->set('pagination', $pagination)
-        ->set('products', $products)
-        ->build('index');
+            ->set('products', $products)
+            ->set('featured', $featured)
+            ->build('index');
     }
 
 }
